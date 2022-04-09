@@ -3,8 +3,9 @@ using KeepInformed.Web.Api;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.RegisterMediatR()
-    .RegisterCustomServices()
+builder.Services.RegisterCustomServices()
+    .RegisterMediatR()
+    .RegisterAutoMapper()
     .RegisterTvn();
 
 builder.Services.AddControllers();

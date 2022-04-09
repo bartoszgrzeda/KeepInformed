@@ -1,29 +1,33 @@
-﻿using KeepInformed.Application.Tvn.Models;
+﻿using KeepInformed.Infrastructure.Tvn.Models;
 using KeepInformed.Application.Tvn.Services;
 using KeepInformed.Common.HttpClient;
 using KeepInformed.Infrastructure.Tvn.Common;
-using System.Xml.Serialization;
+using KeepInformed.Contracts.Tvn.Dto;
+using AutoMapper;
+using KeepInformed.Common.XmlDeserializer;
 
 namespace KeepInformed.Infrastructure.Tvn.Services;
 
 public class TvnRssService : ITvnRssService
 {
     private readonly IHttpClientService _httpClientService;
+    private readonly IMapper _mapper;
+    private readonly IXmlDeserializer _xmlDeserializer;
 
-    public TvnRssService(IHttpClientService httpClientService)
+    public TvnRssService(IHttpClientService httpClientService, IMapper mapper, IXmlDeserializer xmlDeserializer)
     {
         _httpClientService = httpClientService;
+        _mapper = mapper;
+        _xmlDeserializer = xmlDeserializer;
     }
 
-    public async Task<TvnRss> GetNewest()
+    public async Task<IEnumerable<TvnNewsDto>> GetNewest()
     {
         var url = TvnUrl.GetNewest();
 
         using var content = await _httpClientService.GetStreamFromUrl(url);
+        var result = _xmlDeserializer.Deserialize<TvnRss>(content);
 
-        var xmlSerializer = new XmlSerializer(typeof(TvnRss));
-        var result = xmlSerializer.Deserialize(content) as TvnRss;
-
-        return result;
+        return result?.Channel.Items.Select(x => _mapper.Map<TvnNewsDto>(x)) ?? new List<TvnNewsDto>();
     }
 }

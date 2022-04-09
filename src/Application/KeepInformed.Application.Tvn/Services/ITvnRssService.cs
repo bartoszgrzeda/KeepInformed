@@ -1,8 +1,8 @@
-﻿using KeepInformed.Application.Tvn.Models;
+﻿using KeepInformed.Contracts.Tvn.Dto;
 
 namespace KeepInformed.Application.Tvn.Services;
 
 public interface ITvnRssService
 {
-    Task<TvnRss> GetNewest();
+    Task<IEnumerable<TvnNewsDto>> GetNewest();
 }

@@ -1,6 +1,8 @@
-﻿namespace KeepInformed.Contracts.Tvn.Queries.GetTvnNewestNews;
+﻿using KeepInformed.Contracts.Tvn.Dto;
+
+namespace KeepInformed.Contracts.Tvn.Queries.GetTvnNewestNews;
 
 public class GetTvnNewestNewsQueryResponse
 {
-    public IEnumerable<string> Titles { get; set; }
+    public IEnumerable<TvnNewsDto> News { get; set; }
 }

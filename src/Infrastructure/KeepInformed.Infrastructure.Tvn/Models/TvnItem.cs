@@ -1,11 +1,10 @@
 ﻿using System.Xml.Serialization;
 
-namespace KeepInformed.Application.Tvn.Models;
+namespace KeepInformed.Infrastructure.Tvn.Models;
 
 [XmlRoot(ElementName = "item")]
 public class TvnItem
 {
-
 	[XmlElement(ElementName = "title")]
 	public string Title { get; set; }
 

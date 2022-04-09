@@ -19,7 +19,7 @@ public class GetTvnNewestNewsQueryHandler : IRequestHandler<GetTvnNewestNewsQuer
 
         return new GetTvnNewestNewsQueryResponse()
         {
-            Titles = result.Channel.Items.Select(x => x.Title)
+            News = result
         };
     }
 }

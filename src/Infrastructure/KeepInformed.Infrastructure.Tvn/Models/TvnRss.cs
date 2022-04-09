@@ -1,11 +1,10 @@
 ﻿using System.Xml.Serialization;
 
-namespace KeepInformed.Application.Tvn.Models;
+namespace KeepInformed.Infrastructure.Tvn.Models;
 
 [XmlRoot(ElementName = "rss")]
 public class TvnRss
 {
-
 	[XmlElement(ElementName = "channel")]
 	public TvnChannel Channel { get; set; }
 
