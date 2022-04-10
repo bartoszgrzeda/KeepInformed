@@ -21,13 +21,13 @@ public class TvnRssService : ITvnRssService
         _xmlDeserializer = xmlDeserializer;
     }
 
-    public async Task<IEnumerable<TvnNewsDto>> GetNewest()
+    public async Task<IEnumerable<TvnRssItemDto>> GetNewest()
     {
         var url = TvnUrl.GetNewest();
 
         using var content = await _httpClientService.GetStreamFromUrl(url);
         var result = _xmlDeserializer.Deserialize<TvnRss>(content);
 
-        return result?.Channel.Items.Select(x => _mapper.Map<TvnNewsDto>(x)) ?? new List<TvnNewsDto>();
+        return result?.Channel.Items.Select(x => _mapper.Map<TvnRssItemDto>(x)) ?? new List<TvnRssItemDto>();
     }
 }

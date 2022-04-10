@@ -4,5 +4,5 @@ namespace KeepInformed.Contracts.Tvn.Queries.GetTvnNewestNews;
 
 public class GetTvnNewestNewsQueryResponse
 {
-    public IEnumerable<TvnNewsDto> News { get; set; }
+    public IEnumerable<TvnRssItemDto> News { get; set; }
 }

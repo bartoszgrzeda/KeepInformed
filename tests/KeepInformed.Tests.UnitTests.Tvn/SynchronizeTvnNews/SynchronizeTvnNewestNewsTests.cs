@@ -30,7 +30,7 @@ public class SynchronizeTvnNewestNewsTests
     {
         // ARRANGE
         var tvnNews1Date = DateTime.Parse("2022-01-01");
-        var tvnNews1 = new TvnNewsDto()
+        var tvnNews1 = new TvnRssItemDto()
         {
             Description = "Description",
             Guid = "TvnNews1",
@@ -41,7 +41,7 @@ public class SynchronizeTvnNewestNewsTests
         };
 
         var tvnNews2Date = DateTime.Parse("2021-01-01");
-        var tvnNews2 = new TvnNewsDto()
+        var tvnNews2 = new TvnRssItemDto()
         {
             Description = "Description",
             Guid = "TvnNews2",
@@ -53,7 +53,7 @@ public class SynchronizeTvnNewestNewsTests
 
         var tvnRssServiceMock = new Mock<ITvnRssService>();
         tvnRssServiceMock.Setup(x => x.GetNewest())
-            .ReturnsAsync(new List<TvnNewsDto>() { tvnNews1, tvnNews2 });
+            .ReturnsAsync(new List<TvnRssItemDto>() { tvnNews1, tvnNews2 });
 
         var command = new SynchronizeTvnNewestNewsCommand();
         var handler = new SynchronizeTvnNewestNewsCommandHandler(_tvnNewsRepository, tvnRssServiceMock.Object);

@@ -4,11 +4,12 @@ using KeepInformed.Common.HttpClient;
 using KeepInformed.Infrastructure.Tvn.Services;
 using MediatR;
 using AutoMapper;
-using KeepInformed.Infrastructure.Tvn.Mapper;
+using KeepInformed.Infrastructure.Tvn.Mappers;
 using KeepInformed.Common.XmlDeserializer;
 using KeepInformed.Application.Tvn.Repositories;
 using KeepInformed.Infrastructure.DbAccess.Repositories.Tvn;
 using KeepInformed.Infrastructure.DbAccess.Context;
+using KeepInformed.Application.Tvn.Mappers;
 
 namespace KeepInformed.Web.Api;
 
@@ -32,6 +33,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(TvnItemProfile)); // Tvn infrastructure
+        services.AddAutoMapper(typeof(TvnNewsProfile)); // Tvn module
 
         return services;
     }

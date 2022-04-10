@@ -3,13 +3,13 @@ using KeepInformed.Contracts.Tvn.Dto;
 using KeepInformed.Infrastructure.Tvn.Models;
 using System.Text.RegularExpressions;
 
-namespace KeepInformed.Infrastructure.Tvn.Mapper;
+namespace KeepInformed.Infrastructure.Tvn.Mappers;
 
 public class TvnItemProfile : Profile
 {
     public TvnItemProfile()
     {
-        CreateMap<TvnItem, TvnNewsDto>()
+        CreateMap<TvnItem, TvnRssItemDto>()
             .ForMember(destination => destination.Title, options => options.MapFrom(source => source.Title))
             .ForMember(destination => destination.PublicationDate, options => options.MapFrom(source => source.PubDate))
             .ForMember(destination => destination.Guid, options => options.MapFrom(source => source.Guid))
