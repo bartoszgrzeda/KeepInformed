@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\KeepInformed.Application.Tvn\KeepInformed.Application.Tvn.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common.Domain\KeepInformed.Common.Domain.csproj" />
-    <ProjectReference Include="..\..\Contracts\KeepInformed.Contracts.Tvn\KeepInformed.Contracts.Tvn.csproj" />
     <ProjectReference Include="..\..\Domain\KeepInformed.Domain.Tvn\KeepInformed.Domain.Tvn.csproj" />
   </ItemGroup>
 

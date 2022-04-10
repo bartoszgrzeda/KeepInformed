@@ -6,6 +6,9 @@ using MediatR;
 using AutoMapper;
 using KeepInformed.Infrastructure.Tvn.Mapper;
 using KeepInformed.Common.XmlDeserializer;
+using KeepInformed.Application.Tvn.Repositories;
+using KeepInformed.Infrastructure.DbAccess.Repositories.Tvn;
+using KeepInformed.Infrastructure.DbAccess.Context;
 
 namespace KeepInformed.Web.Api;
 
@@ -36,6 +39,15 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterTvn(this IServiceCollection services)
     {
         services.AddTransient<ITvnRssService, TvnRssService>();
+
+        services.AddTransient<ITvnNewsRepository, TvnNewsRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterDbContexts(this IServiceCollection services)
+    {
+        services.AddDbContext<TvnContext>();
 
         return services;
     }

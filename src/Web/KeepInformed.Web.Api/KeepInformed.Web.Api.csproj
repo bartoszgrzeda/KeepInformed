@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Application\KeepInformed.Application.Tvn\KeepInformed.Application.Tvn.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.DbAccess\KeepInformed.Infrastructure.DbAccess.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Tvn\KeepInformed.Infrastructure.Tvn.csproj" />
   </ItemGroup>
 
