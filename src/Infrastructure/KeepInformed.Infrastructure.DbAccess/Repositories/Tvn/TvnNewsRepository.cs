@@ -1,13 +1,12 @@
 ﻿using KeepInformed.Application.Tvn.Repositories;
 using KeepInformed.Domain.Tvn.Entities;
-using KeepInformed.Infrastructure.DbAccess.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace KeepInformed.Infrastructure.DbAccess.Repositories.Tvn;
 
 public class TvnNewsRepository : BaseRepository<TvnNews>, ITvnNewsRepository
 {
-    public TvnNewsRepository(TvnContext context) : base(context)
+    public TvnNewsRepository(KeepInformedContext context) : base(context)
     {
     }
 

@@ -8,8 +8,8 @@ using KeepInformed.Infrastructure.Tvn.Mappers;
 using KeepInformed.Common.XmlDeserializer;
 using KeepInformed.Application.Tvn.Repositories;
 using KeepInformed.Infrastructure.DbAccess.Repositories.Tvn;
-using KeepInformed.Infrastructure.DbAccess.Context;
 using KeepInformed.Application.Tvn.Mappers;
+using KeepInformed.Infrastructure.DbAccess;
 
 namespace KeepInformed.Web.Api;
 
@@ -49,7 +49,7 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection RegisterDbContexts(this IServiceCollection services)
     {
-        services.AddDbContext<TvnContext>();
+        services.AddDbContext<KeepInformedContext>();
 
         return services;
     }
