@@ -10,12 +10,13 @@ public class TvnNews : BaseEntity
     public string TvnDescription { get; set; }
     public DateTime TvnPublicationDate { get; set; }
     public string TvnGuid { get; set; }
+    public bool Seen { get; set; }
 
     protected TvnNews()
     {
     }
 
-    public TvnNews(string title, string url, string imageUrl, string description, DateTime publicationDate, string guid)
+    public TvnNews(string title, string url, string imageUrl, string description, DateTime publicationDate, string guid, bool seen = false)
     {
         TvnTitle = title;
         TvnUrl = url;
@@ -23,6 +24,7 @@ public class TvnNews : BaseEntity
         TvnDescription = description;
         TvnPublicationDate = publicationDate;
         TvnGuid = guid;
+        Seen = seen;
     }
 
     public void SetTvnTitle(string title)
@@ -73,5 +75,15 @@ public class TvnNews : BaseEntity
         }
 
         TvnPublicationDate = publicationDate;
+    }
+
+    public void SetSeen(bool seen)
+    {
+        if (Seen == seen)
+        {
+            return;
+        }
+
+        Seen = seen;
     }
 }
