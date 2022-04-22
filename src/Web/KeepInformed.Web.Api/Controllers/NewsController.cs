@@ -1,7 +1,6 @@
 ﻿using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
-using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Contracts.News.Queries.GetNews;
-using MediatR;
+using KeepInformed.Web.Api.ResponseManager;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -10,11 +9,11 @@ namespace KeepInformed.Web.Api.Controllers;
 [ApiController]
 public class NewsController : Controller
 {
-    private readonly IMediator _mediator;
+    private readonly IResponseManager _responseManager;
 
-    public NewsController(IMediator mediator)
+    public NewsController(IResponseManager responseManager)
     {
-        _mediator = mediator;
+        _responseManager = responseManager;
     }
 
     [HttpGet("GetNews")]
@@ -23,9 +22,7 @@ public class NewsController : Controller
     {
         var query = new GetNewsQuery();
 
-        var result = await _mediator.Send(query);
-
-        return Ok(result);
+        return await _responseManager.SendQuery(query);
     }
 
     [HttpPut("MarkNewsAsSeen")]
@@ -36,8 +33,6 @@ public class NewsController : Controller
             NewsId = newsId
         };
 
-        await _mediator.Send(command);
-
-        return Ok();
+        return await _responseManager.SendCommand(command);
     }
 }

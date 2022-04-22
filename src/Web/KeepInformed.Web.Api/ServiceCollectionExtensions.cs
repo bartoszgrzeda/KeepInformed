@@ -9,6 +9,7 @@ using KeepInformed.Application.News.Queries.GetNews;
 using KeepInformed.Application.News.Repositories;
 using KeepInformed.Infrastructure.DbAccess.Repositories;
 using KeepInformed.Application.News.Mappers;
+using KeepInformed.Web.Api.ResponseManager;
 
 namespace KeepInformed.Web.Api;
 
@@ -16,6 +17,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection RegisterCustomServices(this IServiceCollection services)
     {
+        services.AddTransient<IResponseManager, ResponseManager.ResponseManager>();
+
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<IXmlDeserializer, XmlDeserializer>();
 

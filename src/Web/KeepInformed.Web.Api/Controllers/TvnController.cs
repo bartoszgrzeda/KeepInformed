@@ -1,5 +1,6 @@
 ﻿using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Contracts.News.Queries.GetNews;
+using KeepInformed.Web.Api.ResponseManager;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,11 @@ namespace KeepInformed.Web.Api.Controllers;
 [ApiController]
 public class TvnController : Controller
 {
-    private readonly IMediator _mediator;
+    private readonly IResponseManager _responseManager;
 
-    public TvnController(IMediator mediator)
+    public TvnController(IResponseManager responseManager)
     {
-        _mediator = mediator;
+        _responseManager = responseManager;
     }
 
     [HttpPost("SynchronizeNewestNews")]
@@ -20,8 +21,6 @@ public class TvnController : Controller
     {
         var command = new SynchronizeTvnNewestNewsCommand();
 
-        await _mediator.Send(command);
-
-        return Ok();
+        return await _responseManager.SendCommand(command);
     }
 }
