@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Tvn\KeepInformed.Infrastructure.Tvn.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="KeepInformed.Tests.IntegrationTests" />
+  </ItemGroup>
+
 </Project>
