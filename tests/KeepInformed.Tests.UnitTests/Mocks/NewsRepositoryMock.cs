@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KeepInformed.Tests.UnitTests.Tvn.Mocks;
+namespace KeepInformed.Tests.UnitTests.Mocks;
 
-public class TvnNewsRepositoryMock : INewsRepository
+public class NewsRepositoryMock : INewsRepository
 {
     private readonly List<News> _storage;
 
-    public TvnNewsRepositoryMock()
+    public NewsRepositoryMock()
     {
         _storage = new List<News>();
     }

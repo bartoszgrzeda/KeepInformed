@@ -4,7 +4,7 @@ using KeepInformed.Application.News.Services.Tvn;
 using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Contracts.News.Common;
 using KeepInformed.Contracts.News.Dto.Tvn;
-using KeepInformed.Tests.UnitTests.Tvn.Mocks;
+using KeepInformed.Tests.UnitTests.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -13,17 +13,17 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KeepInformed.Tests.UnitTests.Tvn.SynchronizeTvnNews;
+namespace KeepInformed.Tests.UnitTests.Tvn;
 
 [TestClass]
 public class SynchronizeTvnNewestNewsTests
 {
-    private INewsRepository _tvnNewsRepository;
+    private INewsRepository _newsRepository;
 
     [TestInitialize]
     public void Initialize()
     {
-        _tvnNewsRepository = new TvnNewsRepositoryMock();
+        _newsRepository = new NewsRepositoryMock();
     }
 
     [TestMethod]
@@ -57,15 +57,15 @@ public class SynchronizeTvnNewestNewsTests
             .ReturnsAsync(new List<TvnRssItemDto>() { tvnNews1, tvnNews2 });
 
         var command = new SynchronizeTvnNewestNewsCommand();
-        var handler = new SynchronizeTvnNewestNewsCommandHandler(_tvnNewsRepository, tvnRssServiceMock.Object);
+        var handler = new SynchronizeTvnNewestNewsCommandHandler(_newsRepository, tvnRssServiceMock.Object);
 
         // ACT
         await handler.Handle(command, new CancellationToken());
 
         // ASSERT
-        Assert.AreEqual(2, _tvnNewsRepository.GetAll().Count());
+        Assert.AreEqual(2, _newsRepository.GetAll().Count());
 
-        var news1 = await _tvnNewsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews1.Guid);
+        var news1 = await _newsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews1.Guid);
 
         Assert.IsNotNull(news1);
         Assert.AreEqual(tvnNews1.Description, news1.Description);
@@ -75,7 +75,7 @@ public class SynchronizeTvnNewestNewsTests
         Assert.AreEqual(tvnNews1.PublicationDate, news1.PublicationDate);
         Assert.AreNotEqual(default, news1.Id);
 
-        var news2 = await _tvnNewsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews2.Guid);
+        var news2 = await _newsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews2.Guid);
 
         Assert.IsNotNull(news2);
         Assert.AreEqual(tvnNews2.Description, news2.Description);
