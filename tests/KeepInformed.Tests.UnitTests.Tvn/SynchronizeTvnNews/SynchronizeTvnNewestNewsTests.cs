@@ -1,8 +1,9 @@
-﻿using KeepInformed.Application.Tvn.Commands.SynchronizeTvnNewestNews;
-using KeepInformed.Application.Tvn.Repositories;
-using KeepInformed.Application.Tvn.Services;
-using KeepInformed.Contracts.Tvn.Commands.SynchronizeTvnNewestNews;
-using KeepInformed.Contracts.Tvn.Dto;
+﻿using KeepInformed.Application.News.Commands.Tvn.SynchronizeTvnNewestNews;
+using KeepInformed.Application.News.Repositories;
+using KeepInformed.Application.News.Services.Tvn;
+using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
+using KeepInformed.Contracts.News.Common;
+using KeepInformed.Contracts.News.Dto.Tvn;
 using KeepInformed.Tests.UnitTests.Tvn.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -17,7 +18,7 @@ namespace KeepInformed.Tests.UnitTests.Tvn.SynchronizeTvnNews;
 [TestClass]
 public class SynchronizeTvnNewestNewsTests
 {
-    private ITvnNewsRepository _tvnNewsRepository;
+    private INewsRepository _tvnNewsRepository;
 
     [TestInitialize]
     public void Initialize()
@@ -64,24 +65,24 @@ public class SynchronizeTvnNewestNewsTests
         // ASSERT
         Assert.AreEqual(2, _tvnNewsRepository.GetAll().Count());
 
-        var news1 = await _tvnNewsRepository.GetByTvnGuid(tvnNews1.Guid);
+        var news1 = await _tvnNewsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews1.Guid);
 
         Assert.IsNotNull(news1);
-        Assert.AreEqual(tvnNews1.Description, news1.TvnDescription);
-        Assert.AreEqual(tvnNews1.Title, news1.TvnTitle);
-        Assert.AreEqual(tvnNews1.Url, news1.TvnUrl);
-        Assert.AreEqual(tvnNews1.ImageUrl, news1.TvnImageUrl);
-        Assert.AreEqual(tvnNews1.PublicationDate, news1.TvnPublicationDate);
+        Assert.AreEqual(tvnNews1.Description, news1.Description);
+        Assert.AreEqual(tvnNews1.Title, news1.Title);
+        Assert.AreEqual(tvnNews1.Url, news1.Url);
+        Assert.AreEqual(tvnNews1.ImageUrl, news1.ImageUrl);
+        Assert.AreEqual(tvnNews1.PublicationDate, news1.PublicationDate);
         Assert.AreNotEqual(default, news1.Id);
 
-        var news2 = await _tvnNewsRepository.GetByTvnGuid(tvnNews2.Guid);
+        var news2 = await _tvnNewsRepository.GetBySourceAndCustomStringId(NewsSource.Tvn, tvnNews2.Guid);
 
         Assert.IsNotNull(news2);
-        Assert.AreEqual(tvnNews2.Description, news2.TvnDescription);
-        Assert.AreEqual(tvnNews2.Title, news2.TvnTitle);
-        Assert.AreEqual(tvnNews2.Url, news2.TvnUrl);
-        Assert.AreEqual(tvnNews2.ImageUrl, news2.TvnImageUrl);
-        Assert.AreEqual(tvnNews2.PublicationDate, news2.TvnPublicationDate);
+        Assert.AreEqual(tvnNews2.Description, news2.Description);
+        Assert.AreEqual(tvnNews2.Title, news2.Title);
+        Assert.AreEqual(tvnNews2.Url, news2.Url);
+        Assert.AreEqual(tvnNews2.ImageUrl, news2.ImageUrl);
+        Assert.AreEqual(tvnNews2.PublicationDate, news2.PublicationDate);
         Assert.AreNotEqual(default, news2.Id);
     }
 }

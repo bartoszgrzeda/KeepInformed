@@ -1,15 +1,14 @@
-﻿using KeepInformed.Application.Tvn.Queries.GetTvnNewestNews;
-using KeepInformed.Application.Tvn.Services;
-using KeepInformed.Common.HttpClient;
+﻿using KeepInformed.Common.HttpClient;
 using KeepInformed.Infrastructure.Tvn.Services;
 using MediatR;
-using AutoMapper;
 using KeepInformed.Infrastructure.Tvn.Mappers;
 using KeepInformed.Common.XmlDeserializer;
-using KeepInformed.Application.Tvn.Repositories;
-using KeepInformed.Infrastructure.DbAccess.Repositories.Tvn;
-using KeepInformed.Application.Tvn.Mappers;
 using KeepInformed.Infrastructure.DbAccess;
+using KeepInformed.Application.News.Services.Tvn;
+using KeepInformed.Application.News.Queries.GetNews;
+using KeepInformed.Application.News.Repositories;
+using KeepInformed.Infrastructure.DbAccess.Repositories;
+using KeepInformed.Application.News.Mappers;
 
 namespace KeepInformed.Web.Api;
 
@@ -20,12 +19,16 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<IXmlDeserializer, XmlDeserializer>();
 
+        services.AddTransient<INewsRepository, NewsRepository>();
+
+        services.AddTransient<ITvnRssService, TvnRssService>();
+
         return services;
     }
 
     public static IServiceCollection RegisterMediatR(this IServiceCollection services)
     {
-        services.AddMediatR(typeof(GetTvnNewestNewsQueryHandler)); // Tvn module
+        services.AddMediatR(typeof(GetNewsQueryHandler)); // News module
 
         return services;
     }
@@ -33,16 +36,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(TvnItemProfile)); // Tvn infrastructure
-        services.AddAutoMapper(typeof(TvnNewsProfile)); // Tvn module
-
-        return services;
-    }
-
-    public static IServiceCollection RegisterTvn(this IServiceCollection services)
-    {
-        services.AddTransient<ITvnRssService, TvnRssService>();
-
-        services.AddTransient<ITvnNewsRepository, TvnNewsRepository>();
+        services.AddAutoMapper(typeof(NewsProfile)); // News module
 
         return services;
     }

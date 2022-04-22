@@ -1,10 +1,10 @@
 ﻿using KeepInformed.Infrastructure.Tvn.Models;
-using KeepInformed.Application.Tvn.Services;
 using KeepInformed.Common.HttpClient;
 using KeepInformed.Infrastructure.Tvn.Common;
-using KeepInformed.Contracts.Tvn.Dto;
 using AutoMapper;
 using KeepInformed.Common.XmlDeserializer;
+using KeepInformed.Application.News.Services.Tvn;
+using KeepInformed.Contracts.News.Dto.Tvn;
 
 namespace KeepInformed.Infrastructure.Tvn.Services;
 

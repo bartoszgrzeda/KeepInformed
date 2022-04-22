@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterCustomServices()
     .RegisterMediatR()
     .RegisterAutoMapper()
-    .RegisterTvn()
     .RegisterDbContexts();
 
 builder.Services.AddControllers();

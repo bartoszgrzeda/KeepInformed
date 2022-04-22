@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\KeepInformed.Application.Tvn\KeepInformed.Application.Tvn.csproj" />
+    <ProjectReference Include="..\..\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
   </ItemGroup>
 

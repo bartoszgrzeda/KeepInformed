@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using KeepInformed.Contracts.Tvn.Dto;
+using KeepInformed.Contracts.News.Dto.Tvn;
 using KeepInformed.Infrastructure.Tvn.Models;
 using System.Text.RegularExpressions;
 

@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Application\KeepInformed.Application.Tvn\KeepInformed.Application.Tvn.csproj" />
+    <ProjectReference Include="..\..\src\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
+    <ProjectReference Include="..\..\src\Domain\KeepInformed.Domain.News\KeepInformed.Domain.News.csproj" />
   </ItemGroup>
 
 </Project>

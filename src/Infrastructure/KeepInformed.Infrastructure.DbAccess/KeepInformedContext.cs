@@ -1,13 +1,12 @@
-﻿using KeepInformed.Domain.Tvn.Entities;
+﻿using KeepInformed.Domain.News.Entities;
 using KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
-using KeepInformed.Infrastructure.DbAccess.EntityConfigurations.Tvn;
 using Microsoft.EntityFrameworkCore;
 
 namespace KeepInformed.Infrastructure.DbAccess;
 
 public class KeepInformedContext : DbContext
 {
-    public DbSet<TvnNews> TvnNews { get; set; }
+    public DbSet<News> News { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -17,7 +16,7 @@ public class KeepInformedContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new BaseEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new TvnNewsEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new NewsEntityConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }
