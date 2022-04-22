@@ -1,4 +1,5 @@
-﻿using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
+﻿using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
+using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Contracts.News.Queries.GetNews;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,5 +26,18 @@ public class NewsController : Controller
         var result = await _mediator.Send(query);
 
         return Ok(result);
+    }
+
+    [HttpPut("MarkNewsAsSeen")]
+    public async Task<IActionResult> MarkNewsAsSeen(Guid newsId)
+    {
+        var command = new MarkNewsAsSeenCommand()
+        {
+            NewsId = newsId
+        };
+
+        await _mediator.Send(command);
+
+        return Ok();
     }
 }
