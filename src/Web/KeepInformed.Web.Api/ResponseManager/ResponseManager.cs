@@ -1,4 +1,5 @@
-﻿using KeepInformed.Common.Exceptions;
+﻿using FluentValidation;
+using KeepInformed.Common.Exceptions;
 using KeepInformed.Web.Api.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,12 @@ public class ResponseManager : IResponseManager
 
             return new JsonResult(response);
         }
+        catch (ValidationException validationException)
+        {
+            var response = new Response(validationException.Errors, "VALIDATION_EXCEPTION");
+
+            return new BadRequestObjectResult(response);
+        }
         catch (DomainException domainException)
         {
             var response = new Response(domainException.Message);
@@ -32,7 +39,7 @@ public class ResponseManager : IResponseManager
         }
         catch (Exception exception)
         {
-            var response = new Response(exception.Message);
+            var response = new Response("UNHANDLED_EXCEPTION");
 
             return new ObjectResult(response)
             {

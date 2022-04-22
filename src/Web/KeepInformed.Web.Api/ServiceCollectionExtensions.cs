@@ -10,6 +10,9 @@ using KeepInformed.Application.News.Repositories;
 using KeepInformed.Infrastructure.DbAccess.Repositories;
 using KeepInformed.Application.News.Mappers;
 using KeepInformed.Web.Api.ResponseManager;
+using KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
+using FluentValidation;
+using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
 
 namespace KeepInformed.Web.Api;
 
@@ -31,7 +34,16 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection RegisterMediatR(this IServiceCollection services)
     {
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
         services.AddMediatR(typeof(GetNewsQueryHandler)); // News module
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterValidators(this IServiceCollection services)
+    {
+        services.AddValidatorsFromAssemblyContaining(typeof(MarkNewsAsSeenCommandValidator)); // News module
 
         return services;
     }

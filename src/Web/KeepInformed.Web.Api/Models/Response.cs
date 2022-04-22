@@ -14,4 +14,10 @@ public class Response
     {
         Message = message;
     }
+
+    public Response(object responseModel, string message)
+    {
+        ResponseModel = responseModel;
+        Message = message;
+    }
 }

@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterCustomServices()
     .RegisterMediatR()
     .RegisterAutoMapper()
-    .RegisterDbContexts();
+    .RegisterDbContexts()
+    .RegisterValidators();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
