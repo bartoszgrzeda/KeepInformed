@@ -30,6 +30,18 @@ public class News : BaseEntity
         CustomStringId = customStringId ?? Id.ToString();
     }
 
+    public News(Guid id, string title, string url, string imageUrl, string description, DateTime publicationDate, bool seen, NewsSource source, string? customStringId) : base(id)
+    {
+        Title = title;
+        Url = url;
+        ImageUrl = imageUrl;
+        Description = description;
+        PublicationDate = publicationDate;
+        Seen = seen;
+        Source = source;
+        CustomStringId = customStringId ?? Id.ToString();
+    }
+
     public void SetTitle(string title)
     {
         if (Title == title)
