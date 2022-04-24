@@ -3,7 +3,6 @@ using KeepInformed.Common.Exceptions;
 using KeepInformed.Web.Api.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace KeepInformed.Web.Api.ResponseManager;
 
@@ -37,7 +36,7 @@ public class ResponseManager : IResponseManager
 
             return new BadRequestObjectResult(response);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             var response = new Response("UNHANDLED_EXCEPTION");
 

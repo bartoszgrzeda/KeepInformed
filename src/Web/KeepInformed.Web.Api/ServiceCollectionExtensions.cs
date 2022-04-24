@@ -17,6 +17,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using KeepInformed.Application.Authorization.Repositories;
+using KeepInformed.Application.Authorization.Services;
+using KeepInformed.Application.Authorization.Commands.UserSignIn;
+using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
+using KeepInformed.Application.Authorization.Mappers;
 
 namespace KeepInformed.Web.Api;
 
@@ -30,8 +35,14 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IXmlDeserializer, XmlDeserializer>();
 
         services.AddTransient<INewsRepository, NewsRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
 
         services.AddTransient<ITvnRssService, TvnRssService>();
+
+        services.AddTransient<IEncrypter, Encrypter>();
+        services.AddTransient<IJwtTokenService, JwtTokenService>();
+
+        services.AddMemoryCache();
 
         return services;
     }
@@ -41,6 +52,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
         services.AddMediatR(typeof(GetNewsQueryHandler)); // News module
+        services.AddMediatR(typeof(UserSignInCommandHandler)); // Authorization module
 
         return services;
     }
@@ -48,6 +60,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterValidators(this IServiceCollection services)
     {
         services.AddValidatorsFromAssemblyContaining(typeof(MarkNewsAsSeenCommandValidator)); // News module
+        services.AddValidatorsFromAssemblyContaining(typeof(UserSignInCommandValidator)); // Authorization module
 
         return services;
     }
@@ -56,6 +69,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddAutoMapper(typeof(TvnItemProfile)); // Tvn infrastructure
         services.AddAutoMapper(typeof(NewsProfile)); // News module
+        services.AddAutoMapper(typeof(UserProfile)); // Authorization module
 
         return services;
     }

@@ -1,4 +1,5 @@
-﻿using KeepInformed.Domain.News.Entities;
+﻿using KeepInformed.Domain.Authorization.Entities;
+using KeepInformed.Domain.News.Entities;
 using KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace KeepInformed.Infrastructure.DbAccess;
 public class KeepInformedContext : DbContext
 {
     public DbSet<News> News { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -17,6 +19,7 @@ public class KeepInformedContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new BaseEntityConfiguration());
         modelBuilder.ApplyConfiguration(new NewsEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

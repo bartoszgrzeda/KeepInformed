@@ -4,7 +4,6 @@ Patterns:
 - CQRS
 - DDD
 - Onion architecture
-- Jwt auth
 
 Using:
 - MediatR
@@ -14,3 +13,5 @@ Using:
 - MSTest
 - Moq
 - Docker
+- Jwt auth
+- Cache
