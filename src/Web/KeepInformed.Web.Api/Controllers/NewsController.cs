@@ -1,12 +1,16 @@
 ﻿using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
 using KeepInformed.Contracts.News.Queries.GetNews;
 using KeepInformed.Web.Api.ResponseManager;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace KeepInformed.Web.Api.Controllers;
 
 [ApiController]
+[Authorize]
+[Route("api/News")]
 public class NewsController : Controller
 {
     private readonly IResponseManager _responseManager;
@@ -16,17 +20,17 @@ public class NewsController : Controller
         _responseManager = responseManager;
     }
 
-    [HttpGet("GetNews")]
+    [HttpGet("Get")]
     [ProducesResponseType(typeof(GetNewsQueryResponse), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> GetNews()
+    public async Task<IActionResult> Get()
     {
         var query = new GetNewsQuery();
 
         return await _responseManager.SendQuery(query);
     }
 
-    [HttpPut("MarkNewsAsSeen")]
-    public async Task<IActionResult> MarkNewsAsSeen(Guid newsId)
+    [HttpPut("MarkAsSeen")]
+    public async Task<IActionResult> MarkAsSeen(Guid newsId)
     {
         var command = new MarkNewsAsSeenCommand()
         {

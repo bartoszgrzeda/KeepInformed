@@ -1,12 +1,13 @@
 ﻿using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
-using KeepInformed.Contracts.News.Queries.GetNews;
 using KeepInformed.Web.Api.ResponseManager;
-using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KeepInformed.Web.Api.Controllers;
 
 [ApiController]
+[Authorize]
+[Route("api/Tvn")]
 public class TvnController : Controller
 {
     private readonly IResponseManager _responseManager;

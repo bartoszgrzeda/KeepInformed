@@ -1,9 +1,12 @@
 using KeepInformed.Web.Api;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.RegisterCustomServices()
+builder.Services.AddJwtBearerAuthentication(builder.Configuration)
+    .AddCustomSwagger()
+    .RegisterCustomServices()
     .RegisterMediatR()
     .RegisterAutoMapper()
     .RegisterDbContexts()
@@ -12,7 +15,6 @@ builder.Services.RegisterCustomServices()
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -25,6 +27,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
