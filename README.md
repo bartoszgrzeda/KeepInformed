@@ -4,6 +4,7 @@ Patterns:
 - CQRS
 - DDD
 - Onion architecture
+- Jwt auth
 
 Using:
 - MediatR
