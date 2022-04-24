@@ -12,3 +12,4 @@ Using:
 - Fluent Validation
 - MSTest
 - Moq
+- Docker
