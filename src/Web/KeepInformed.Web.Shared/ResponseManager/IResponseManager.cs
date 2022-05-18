@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KeepInformed.Web.Api.ResponseManager;
+namespace KeepInformed.Web.Shared.ResponseManager;
 
 public interface IResponseManager
 {

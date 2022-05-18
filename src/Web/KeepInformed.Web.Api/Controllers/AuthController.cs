@@ -1,4 +1,4 @@
-﻿using KeepInformed.Web.Api.ResponseManager;
+﻿using KeepInformed.Web.Shared.ResponseManager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

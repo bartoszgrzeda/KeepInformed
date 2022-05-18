@@ -2,7 +2,7 @@
 using KeepInformed.Contracts.Authorization.Commands.UserSignUp;
 using KeepInformed.Contracts.Authorization.Queries.GetUserJwt;
 using KeepInformed.Contracts.Authorization.Queries.GetUsers;
-using KeepInformed.Web.Api.ResponseManager;
+using KeepInformed.Web.Shared.ResponseManager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

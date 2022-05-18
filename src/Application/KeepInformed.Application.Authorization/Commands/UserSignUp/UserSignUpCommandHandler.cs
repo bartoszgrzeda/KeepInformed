@@ -1,7 +1,9 @@
 ﻿using KeepInformed.Application.Authorization.Repositories;
 using KeepInformed.Application.Authorization.Services;
+using KeepInformed.Common.EventBus;
 using KeepInformed.Contracts.Authorization.Commands.UserSignUp;
 using KeepInformed.Contracts.Authorization.Exceptions;
+using KeepInformed.Contracts.Authorization.IntegrationEvents;
 using KeepInformed.Domain.Authorization.Entities;
 using MediatR;
 
@@ -11,11 +13,13 @@ public class UserSignUpCommandHandler : IRequestHandler<UserSignUpCommand>
 {
     private readonly IUserRepository _userRepository;
     private readonly IEncrypter _encrypter;
+    private readonly IEventBus _eventBus;
 
-    public UserSignUpCommandHandler(IUserRepository userRepository, IEncrypter encrypter)
+    public UserSignUpCommandHandler(IUserRepository userRepository, IEncrypter encrypter, IEventBus eventBus)
     {
         _userRepository = userRepository;
         _encrypter = encrypter;
+        _eventBus = eventBus;
     }
 
     public async Task<Unit> Handle(UserSignUpCommand request, CancellationToken cancellationToken)
@@ -36,6 +40,13 @@ public class UserSignUpCommandHandler : IRequestHandler<UserSignUpCommand>
 
         await _userRepository.Add(user);
         await _userRepository.SaveChanges();
+
+        var userSignedUp = new UserSignedUp()
+        {
+            Email = email
+        };
+
+        _eventBus.Publish(userSignedUp);
 
         return Unit.Value;
     }

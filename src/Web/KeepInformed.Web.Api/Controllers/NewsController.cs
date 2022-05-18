@@ -1,7 +1,6 @@
 ﻿using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
 using KeepInformed.Contracts.News.Queries.GetNews;
-using KeepInformed.Web.Api.ResponseManager;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using KeepInformed.Web.Shared.ResponseManager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

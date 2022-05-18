@@ -4,6 +4,7 @@ Patterns:
 - CQRS
 - DDD
 - Onion architecture
+- Integration events
 
 Using:
 - MediatR
@@ -15,3 +16,4 @@ Using:
 - Docker
 - Jwt auth
 - Cache
+- RabbitMQ

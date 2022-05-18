@@ -1,5 +1,5 @@
 ﻿using KeepInformed.Contracts.News.Commands.Tvn.SynchronizeTvnNewestNews;
-using KeepInformed.Web.Api.ResponseManager;
+using KeepInformed.Web.Shared.ResponseManager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

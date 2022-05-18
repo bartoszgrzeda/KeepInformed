@@ -1,20 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj" />
     <ProjectReference Include="..\..\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.DbAccess\KeepInformed.Infrastructure.DbAccess.csproj" />
@@ -22,11 +24,6 @@
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.RabbitMq\KeepInformed.Infrastructure.RabbitMq.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Tvn\KeepInformed.Infrastructure.Tvn.csproj" />
-    <ProjectReference Include="..\KeepInformed.Web.Shared\KeepInformed.Web.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <InternalsVisibleTo Include="KeepInformed.Tests.IntegrationTests" />
   </ItemGroup>
 
 </Project>

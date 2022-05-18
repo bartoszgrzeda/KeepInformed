@@ -39,11 +39,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Tests.Integrat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authorization", "Authorization", "{59F54DB9-315F-4DB3-9EB3-86E9FE9826C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Domain.Authorization", "src\Domain\KeepInformed.Domain.Authorization\KeepInformed.Domain.Authorization.csproj", "{E995942C-7B8A-4876-80F1-124785226F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Domain.Authorization", "src\Domain\KeepInformed.Domain.Authorization\KeepInformed.Domain.Authorization.csproj", "{E995942C-7B8A-4876-80F1-124785226F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Contracts.Authorization", "src\Contracts\KeepInformed.Contracts.Authorization\KeepInformed.Contracts.Authorization.csproj", "{33E3A06F-A07B-4921-8ECB-C80ACBF0F7A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Contracts.Authorization", "src\Contracts\KeepInformed.Contracts.Authorization\KeepInformed.Contracts.Authorization.csproj", "{33E3A06F-A07B-4921-8ECB-C80ACBF0F7A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Application.Authorization", "src\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj", "{7B1F9791-FC21-4347-A7C0-DCF38F967366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Application.Authorization", "src\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj", "{7B1F9791-FC21-4347-A7C0-DCF38F967366}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.EventBus", "src\Infrastructure\KeepInformed.Infrastructure.EventBus\KeepInformed.Infrastructure.EventBus.csproj", "{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.RabbitMq", "src\Infrastructure\KeepInformed.Infrastructure.RabbitMq\KeepInformed.Infrastructure.RabbitMq.csproj", "{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Web.Shared", "src\Web\KeepInformed.Web.Shared\KeepInformed.Web.Shared.csproj", "{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Web.Jobs", "src\Web\KeepInformed.Web.Jobs\KeepInformed.Web.Jobs.csproj", "{29E5766F-A88F-449E-B55B-ED14D38FC2B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +115,22 @@ Global
 		{7B1F9791-FC21-4347-A7C0-DCF38F967366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1F9791-FC21-4347-A7C0-DCF38F967366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B1F9791-FC21-4347-A7C0-DCF38F967366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E5766F-A88F-449E-B55B-ED14D38FC2B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E5766F-A88F-449E-B55B-ED14D38FC2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E5766F-A88F-449E-B55B-ED14D38FC2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E5766F-A88F-449E-B55B-ED14D38FC2B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +152,10 @@ Global
 		{E995942C-7B8A-4876-80F1-124785226F66} = {59F54DB9-315F-4DB3-9EB3-86E9FE9826C6}
 		{33E3A06F-A07B-4921-8ECB-C80ACBF0F7A9} = {59F54DB9-315F-4DB3-9EB3-86E9FE9826C6}
 		{7B1F9791-FC21-4347-A7C0-DCF38F967366} = {59F54DB9-315F-4DB3-9EB3-86E9FE9826C6}
+		{7DDA1A05-0702-49D5-926C-9F4C3CF9F1A2} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
+		{A72D1FA5-4A24-4FE3-82C6-4272A6E690E1} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
+		{EEC7FD7B-4E65-4F5E-8F6F-7CF92CDD050E} = {4FFFB39D-D540-4180-95E1-2EA43CDBFA66}
+		{29E5766F-A88F-449E-B55B-ED14D38FC2B4} = {4FFFB39D-D540-4180-95E1-2EA43CDBFA66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {948BAA56-90E6-49B0-9D38-D102E9041721}

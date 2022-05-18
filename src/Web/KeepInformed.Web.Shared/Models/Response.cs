@@ -1,4 +1,4 @@
-﻿namespace KeepInformed.Web.Api.Models;
+﻿namespace KeepInformed.Web.Shared.Models;
 
 public class Response
 {

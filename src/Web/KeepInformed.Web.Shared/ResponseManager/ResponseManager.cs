@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using KeepInformed.Common.Exceptions;
-using KeepInformed.Web.Api.Models;
+using KeepInformed.Web.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KeepInformed.Web.Api.ResponseManager;
+namespace KeepInformed.Web.Shared.ResponseManager;
 
 public class ResponseManager : IResponseManager
 {
