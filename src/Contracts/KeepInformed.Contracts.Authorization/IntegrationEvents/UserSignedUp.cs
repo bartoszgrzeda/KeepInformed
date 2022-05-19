@@ -4,5 +4,5 @@ namespace KeepInformed.Contracts.Authorization.IntegrationEvents;
 
 public class UserSignedUp : IntegrationEvent
 {
-    public string Email { get; set; }
+    public Guid UserId { get; set; }
 }

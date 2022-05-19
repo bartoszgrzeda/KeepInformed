@@ -33,17 +33,18 @@ public class UserSignUpCommandHandler : IRequestHandler<UserSignUpCommand>
             throw new UserWithProvidedEmailAlreadyExistsDomainException();
         }
 
+        var userId = Guid.NewGuid();
         var salt = _encrypter.GetSalt();
         var passwordHash = _encrypter.GetHash(request.Password, salt);
 
-        var user = new User(email, passwordHash, salt);
+        var user = new User(userId, email, passwordHash, salt);
 
         await _userRepository.Add(user);
         await _userRepository.SaveChanges();
 
         var userSignedUp = new UserSignedUp()
         {
-            Email = email
+            UserId = userId
         };
 
         _eventBus.Publish(userSignedUp);

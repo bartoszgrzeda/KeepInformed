@@ -9,7 +9,7 @@ public class UserSignedUpConfirmation : BaseEntity
 
     public bool IsActive { get; private set; }
 
-    public UserSignedUpConfirmation(Guid confirmationId, Guid userId) : base(confirmationId)
+    public UserSignedUpConfirmation(Guid id, Guid userId) : base(id)
     {
         UserId = userId;
         IsActive = true;

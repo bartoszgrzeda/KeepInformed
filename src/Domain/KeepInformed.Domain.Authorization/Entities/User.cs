@@ -9,7 +9,7 @@ public class User : BaseEntity
     public string Salt { get; private set; }
     public DateTime? LastSignInDate { get; private set; }
 
-    public User(string email, string password, string salt) : base()
+    public User(Guid id, string email, string password, string salt) : base(id)
     {
         Email = email;
         Password = password;

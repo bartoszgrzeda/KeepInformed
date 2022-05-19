@@ -22,6 +22,8 @@ using KeepInformed.Infrastructure.EventBus;
 using Microsoft.Extensions.DependencyInjection;
 using KeepInformed.Web.Shared.ResponseManager;
 using FluentValidation;
+using KeepInformed.Common.MailMessage;
+using KeepInformed.Infrastructure.MailMessage;
 
 namespace KeepInformed.Web.Shared;
 
@@ -36,6 +38,7 @@ public static class ServiceCollectionExtensions
 
         services.AddTransient<INewsRepository, NewsRepository>();
         services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IUserSignedUpConfirmationRepository, UserSignedUpConfirmationRepository>();
 
         services.AddTransient<ITvnRssService, TvnRssService>();
 
@@ -43,6 +46,9 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IJwtTokenService, JwtTokenService>();
 
         services.AddMemoryCache();
+
+        services.AddTransient<IMailMessageBuilder, MailMessageBuilder>();
+        services.AddTransient<IMailMessageSender, MailMessageSender>();
 
         return services;
     }
