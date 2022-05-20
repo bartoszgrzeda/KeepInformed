@@ -6,4 +6,5 @@ public class UserDto
     public string Email { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime? LastSignInDate { get; set; }
+    public bool IsEmailConfirmed { get; set; }
 }

@@ -12,6 +12,7 @@ public class UserProfile : Profile
            .ForMember(destination => destination.Id, options => options.MapFrom(source => source.Id))
            .ForMember(destination => destination.Email, options => options.MapFrom(source => source.Email))
            .ForMember(destination => destination.CreatedDate, options => options.MapFrom(source => source.CreatedDate))
-           .ForMember(destination => destination.LastSignInDate, options => options.MapFrom(source => source.LastSignInDate));
+           .ForMember(destination => destination.LastSignInDate, options => options.MapFrom(source => source.LastSignInDate))
+           .ForMember(destination => destination.IsEmailConfirmed, options => options.MapFrom(source => source.IsEmailConfirmed));
     }
 }
