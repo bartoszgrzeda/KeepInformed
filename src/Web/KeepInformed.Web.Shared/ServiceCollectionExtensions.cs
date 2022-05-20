@@ -56,6 +56,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterMediatR(this IServiceCollection services)
     {
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
 
         services.AddMediatR(typeof(GetNewsQueryHandler)); // News module
         services.AddMediatR(typeof(UserSignInCommandHandler)); // Authorization module

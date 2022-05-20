@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Web.Shared", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Web.Jobs", "src\Web\KeepInformed.Web.Jobs\KeepInformed.Web.Jobs.csproj", "{29E5766F-A88F-449E-B55B-ED14D38FC2B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.MailMessage", "src\Infrastructure\KeepInformed.Infrastructure.MailMessage\KeepInformed.Infrastructure.MailMessage.csproj", "{7509ED3E-68E6-4C04-8C3B-74DBA0058A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.MailMessage", "src\Infrastructure\KeepInformed.Infrastructure.MailMessage\KeepInformed.Infrastructure.MailMessage.csproj", "{7509ED3E-68E6-4C04-8C3B-74DBA0058A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
