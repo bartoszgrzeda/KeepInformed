@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
 
-public class BaseEntityConfiguration : IEntityTypeConfiguration<BaseEntity>
+public class BaseEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
 {
-    public void Configure(EntityTypeBuilder<BaseEntity> builder)
+    public void Configure(EntityTypeBuilder<TEntity> builder)
     {
         builder.Property(x => x.Id)
             .IsRequired();

@@ -1,4 +1,5 @@
-﻿using KeepInformed.Common.EventBus;
+﻿using Autofac;
+using KeepInformed.Common.EventBus;
 using KeepInformed.Common.EventHandlers;
 using KeepInformed.Common.Events;
 using KeepInformed.Infrastructure.EventBus;
@@ -13,21 +14,24 @@ public class RabbitMqEventBus : IEventBus
 {
     private const string EXCHANGE_NAME = "KeepInformedExchange";
     private const string QUEUE_NAME = "KeepInformedQueue";
+    private const string SCOPE_NAME = "KeepInformedScope";
 
     private readonly IRabbitMqConnection _connection;
     private readonly IEventBusSubscriptionsManager _subscriptionsManager;
     private readonly IServiceProvider _serviceProvider;
+    private readonly ILifetimeScope _lifetimeScope;
 
     private IModel? _consumerChannel;
 
-    public RabbitMqEventBus(IRabbitMqConnection connection, IEventBusSubscriptionsManager subscriptionsManager, IServiceProvider serviceProvider)
+    public RabbitMqEventBus(IRabbitMqConnection connection, IEventBusSubscriptionsManager subscriptionsManager, IServiceProvider serviceProvider, ILifetimeScope lifetimeScope)
     {
         _connection = connection;
         _subscriptionsManager = subscriptionsManager;
         _serviceProvider = serviceProvider;
+        _lifetimeScope = lifetimeScope;
     }
 
-    public void Publish(IntegrationEvent @event)
+    public void Publish<TIntegrationEvent>(TIntegrationEvent @event) where TIntegrationEvent : IntegrationEvent
     {
         if (!_connection.IsConnected)
         {
@@ -87,7 +91,7 @@ public class RabbitMqEventBus : IEventBus
             type: ExchangeType.Direct);
 
         _consumerChannel.QueueDeclare(queue: QUEUE_NAME,
-            durable: true,
+            durable: false,
             exclusive: false,
             autoDelete: false,
             arguments: null);
@@ -106,9 +110,27 @@ public class RabbitMqEventBus : IEventBus
         var body = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
         var eventType = subscription.EventType;
 
-        foreach (var handlerType in subscription.HandlerTypes)
+        /*foreach (var handlerType in subscription.HandlerTypes)
         {
             await HandleEvent(eventType, handlerType, body);
+        }*/
+
+        using (var scope = _lifetimeScope.BeginLifetimeScope(SCOPE_NAME))
+        {
+            foreach (var handlerType in subscription.HandlerTypes)
+            {
+                var handler = scope.ResolveOptional(handlerType);
+
+                if (handler == null)
+                {
+                    continue;
+                }
+
+                var integrationEvent = JsonSerializer.Deserialize(body, eventType);
+                var concreteType = typeof(IIntegrationEventHandler<>).MakeGenericType(eventType);
+
+                await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { integrationEvent });
+            }
         }
 
         _consumerChannel!.BasicAck(eventArgs.DeliveryTag, multiple: false);
@@ -125,6 +147,7 @@ public class RabbitMqEventBus : IEventBus
 
         var integrationEvent = JsonSerializer.Deserialize(body, eventType);
 
-        await (Task)handlerType.GetMethod("Handle")!.Invoke(handler, new object[] { integrationEvent })!;
+        var task = (Task)handlerType.GetMethod("Handle")!.Invoke(handler, new object[] { integrationEvent })!;
+        await task;
     }
 }

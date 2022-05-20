@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
 
-public class UserSignedUpConfirmationEntityConfiguration : BaseEntityConfiguration
+public class UserSignedUpConfirmationEntityConfiguration : BaseEntityConfiguration<UserSignedUpConfirmation>
 {
     public void Configure(EntityTypeBuilder<UserSignedUpConfirmation> builder)
     {

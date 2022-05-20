@@ -13,12 +13,11 @@ public class KeepInformedContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseInMemoryDatabase("KeepInformed");
+        optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=KeepInformed;Integrated Security=True;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new BaseEntityConfiguration());
         modelBuilder.ApplyConfiguration(new NewsEntityConfiguration());
         modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
         modelBuilder.ApplyConfiguration(new UserSignedUpConfirmationEntityConfiguration());

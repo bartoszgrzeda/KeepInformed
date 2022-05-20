@@ -1,7 +1,10 @@
+using Autofac.Extensions.DependencyInjection;
 using KeepInformed.Web.Api;
 using KeepInformed.Web.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 // Add services to the container.
 
