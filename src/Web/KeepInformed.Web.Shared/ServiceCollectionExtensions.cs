@@ -38,7 +38,7 @@ public static class ServiceCollectionExtensions
 
         services.AddTransient<INewsRepository, NewsRepository>();
         services.AddTransient<IUserRepository, UserRepository>();
-        services.AddTransient<IUserSignedUpConfirmationRepository, UserSignedUpConfirmationRepository>();
+        services.AddTransient<IUserEmailConfirmationRepository, UserEmailConfirmationRepository>();
 
         services.AddTransient<ITvnRssService, TvnRssService>();
 

@@ -4,6 +4,7 @@ using KeepInformed.Infrastructure.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KeepInformed.Infrastructure.DbAccess.Migrations
 {
     [DbContext(typeof(KeepInformedContext))]
-    partial class KeepInformedContextModelSnapshot : ModelSnapshot
+    [Migration("20220520191701_UserEmailConfirmation")]
+    partial class UserEmailConfirmation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

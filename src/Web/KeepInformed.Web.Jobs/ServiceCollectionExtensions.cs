@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection RegisterIntegrationEventHandlers(this IServiceCollection services)
     {
-        services.AddTransient<IIntegrationEventHandler<UserSignedUp>, SendUserSignedUpConfirmationEmail>();
+        services.AddTransient<IIntegrationEventHandler<UserSignedUp>, SendUserEmailConfirmation>();
 
         return services;
     }

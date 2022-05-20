@@ -30,6 +30,11 @@ public class UserSignInCommandHandler : IRequestHandler<UserSignInCommand>
             throw new UserInvalidCredentialsDomainException();
         }
 
+        if (!user.IsEmailConfirmed)
+        {
+            throw new UserEmailNotConfirmedDomainException();
+        }
+
         var hashedPassword = _encrypter.GetHash(request.Password, user.Salt);
 
         if (user.Password != hashedPassword)

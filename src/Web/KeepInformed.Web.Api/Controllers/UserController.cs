@@ -1,4 +1,5 @@
-﻿using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
+﻿using KeepInformed.Contracts.Authorization.Commands.UserConfirmEmail;
+using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
 using KeepInformed.Contracts.Authorization.Commands.UserSignUp;
 using KeepInformed.Contracts.Authorization.Queries.GetUserJwt;
 using KeepInformed.Contracts.Authorization.Queries.GetUsers;
@@ -53,5 +54,11 @@ public class UserController : Controller
         var query = new GetUsersQuery();
 
         return await _responseManager.SendQuery(query);
+    }
+
+    [HttpPut("ConfirmEmail")]
+    public async Task<IActionResult> ConfirmEmail(UserConfirmEmailCommand command)
+    {
+        return await _responseManager.SendCommand(command);
     }
 }

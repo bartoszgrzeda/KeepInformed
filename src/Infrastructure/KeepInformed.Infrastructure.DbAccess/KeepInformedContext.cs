@@ -9,7 +9,7 @@ public class KeepInformedContext : DbContext
 {
     public DbSet<News> News { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<UserSignedUpConfirmation> UserSignedUpConfirmations { get; set; }
+    public DbSet<UserEmailConfirmation> UserEmailConfirmations { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -20,7 +20,7 @@ public class KeepInformedContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new NewsEntityConfiguration());
         modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new UserSignedUpConfirmationEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new UserEmailConfirmationEntityConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

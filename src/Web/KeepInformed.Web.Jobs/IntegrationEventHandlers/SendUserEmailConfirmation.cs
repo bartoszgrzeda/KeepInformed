@@ -5,11 +5,11 @@ using MediatR;
 
 namespace KeepInformed.Web.Jobs.IntegrationEventHandlers;
 
-public class SendUserSignedUpConfirmationEmail : IIntegrationEventHandler<UserSignedUp>
+public class SendUserEmailConfirmation : IIntegrationEventHandler<UserSignedUp>
 {
     private readonly IMediator _mediator;
 
-    public SendUserSignedUpConfirmationEmail(IMediator mediator)
+    public SendUserEmailConfirmation(IMediator mediator)
     {
         _mediator = mediator;
     }

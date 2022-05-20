@@ -8,12 +8,14 @@ public class User : BaseEntity
     public string Password { get; private set; }
     public string Salt { get; private set; }
     public DateTime? LastSignInDate { get; private set; }
+    public bool IsEmailConfirmed { get; private set; }
 
     public User(Guid id, string email, string password, string salt) : base(id)
     {
         Email = email;
         Password = password;
         Salt = salt;
+        IsEmailConfirmed = false;
     }
 
     public void SetEmail(string email)
@@ -54,5 +56,15 @@ public class User : BaseEntity
         }
 
         LastSignInDate = lastSingInDate;
+    }
+
+    public void SetIsEmailConfirmed(bool isEmailConfirmed)
+    {
+        if (IsEmailConfirmed == isEmailConfirmed)
+        {
+            return;
+        }
+
+        IsEmailConfirmed = isEmailConfirmed;
     }
 }

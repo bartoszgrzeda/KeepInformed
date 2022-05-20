@@ -10,14 +10,14 @@ namespace KeepInformed.Application.Authorization.Commands.UserSendConfirmationEm
 public class UserSendConfirmationEmailCommandHandler : IRequestHandler<UserSendConfirmationEmailCommand>
 {
     private readonly IUserRepository _userRepository;
-    private readonly IUserSignedUpConfirmationRepository _userSignedUpConfirmationRepository;
+    private readonly IUserEmailConfirmationRepository _userEmailConfirmationRepository;
     private readonly IMailMessageBuilder _mailMessageBuilder;
     private readonly IMailMessageSender _mailMessageSender;
 
-    public UserSendConfirmationEmailCommandHandler(IUserRepository userRepository, IUserSignedUpConfirmationRepository userSignedUpConfirmationRepository, IMailMessageBuilder mailMessageBuilder, IMailMessageSender mailMessageSender)
+    public UserSendConfirmationEmailCommandHandler(IUserRepository userRepository, IUserEmailConfirmationRepository userEmailConfirmationRepository, IMailMessageBuilder mailMessageBuilder, IMailMessageSender mailMessageSender)
     {
         _userRepository = userRepository;
-        _userSignedUpConfirmationRepository = userSignedUpConfirmationRepository;
+        _userEmailConfirmationRepository = userEmailConfirmationRepository;
         _mailMessageBuilder = mailMessageBuilder;
         _mailMessageSender = mailMessageSender;
     }
@@ -33,18 +33,18 @@ public class UserSendConfirmationEmailCommandHandler : IRequestHandler<UserSendC
             throw new UserWithProvidedIdNotFoundDomainException();
         }
 
-        var activeConfirmation = await _userSignedUpConfirmationRepository.GetActiveByUserId(userId);
+        var activeConfirmation = await _userEmailConfirmationRepository.GetActiveByUserId(userId);
 
         if (activeConfirmation != null)
         {
             activeConfirmation.SetIsActive(false);
-            _userSignedUpConfirmationRepository.Update(activeConfirmation);
+            _userEmailConfirmationRepository.Update(activeConfirmation);
         }
 
         var confirmationId = Guid.NewGuid();
-        var confirmation = new UserSignedUpConfirmation(confirmationId, userId);
+        var confirmation = new UserEmailConfirmation(confirmationId, userId);
 
-        await _userSignedUpConfirmationRepository.Add(confirmation);
+        await _userEmailConfirmationRepository.Add(confirmation);
 
         // TO DO get template from db
         var subject = "Keep Informed | Confirm your email address";
@@ -59,7 +59,7 @@ public class UserSendConfirmationEmailCommandHandler : IRequestHandler<UserSendC
 
         await _mailMessageSender.Send(message);
 
-        await _userSignedUpConfirmationRepository.SaveChanges();
+        await _userEmailConfirmationRepository.SaveChanges();
 
         return Unit.Value;
     }
