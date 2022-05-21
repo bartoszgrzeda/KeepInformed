@@ -12,6 +12,7 @@ public static class ApplicationBuilderExtensions
         var eventBus = applicationBuilder.ApplicationServices.GetRequiredService<IEventBus>();
 
         eventBus.Subscribe<UserSignedUp, IIntegrationEventHandler<UserSignedUp>>();
+        eventBus.Subscribe<UserConfirmedEmail, IIntegrationEventHandler<UserConfirmedEmail>>();
 
         return applicationBuilder;
     }

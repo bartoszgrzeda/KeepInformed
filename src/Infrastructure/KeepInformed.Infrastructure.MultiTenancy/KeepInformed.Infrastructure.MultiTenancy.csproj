@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
+    <ProjectReference Include="..\KeepInformed.Infrastructure.TenantDbAccess\KeepInformed.Infrastructure.TenantDbAccess.csproj" />
   </ItemGroup>
 
 </Project>

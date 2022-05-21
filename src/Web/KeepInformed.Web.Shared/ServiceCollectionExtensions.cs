@@ -57,6 +57,8 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IMailMessageBuilder, MailMessageBuilder>();
         services.AddTransient<IMailMessageSender, MailMessageSender>();
 
+        services.AddTransient<ITenantDatabaseService, TenantDatabaseService>();
+
         return services;
     }
 

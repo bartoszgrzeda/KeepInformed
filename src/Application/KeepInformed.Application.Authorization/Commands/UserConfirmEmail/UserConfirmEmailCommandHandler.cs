@@ -1,6 +1,8 @@
 ﻿using KeepInformed.Application.Authorization.Repositories;
+using KeepInformed.Common.EventBus;
 using KeepInformed.Contracts.Authorization.Commands.UserConfirmEmail;
 using KeepInformed.Contracts.Authorization.Exceptions;
+using KeepInformed.Contracts.Authorization.IntegrationEvents;
 using KeepInformed.Domain.Authorization.Entities;
 using MediatR;
 
@@ -10,11 +12,13 @@ public class UserConfirmEmailCommandHandler : IRequestHandler<UserConfirmEmailCo
 {
     private readonly IUserRepository _userRepository;
     private readonly IUserEmailConfirmationRepository _userEmailConfirmationRepository;
+    private readonly IEventBus _eventBus;
 
-    public UserConfirmEmailCommandHandler(IUserRepository userRepository, IUserEmailConfirmationRepository userEmailConfirmationRepository)
+    public UserConfirmEmailCommandHandler(IUserRepository userRepository, IUserEmailConfirmationRepository userEmailConfirmationRepository, IEventBus eventBus)
     {
         _userRepository = userRepository;
         _userEmailConfirmationRepository = userEmailConfirmationRepository;
+        _eventBus = eventBus;
     }
 
     public async Task<Unit> Handle(UserConfirmEmailCommand request, CancellationToken cancellationToken)
@@ -37,6 +41,12 @@ public class UserConfirmEmailCommandHandler : IRequestHandler<UserConfirmEmailCo
         _userEmailConfirmationRepository.Update(confirmation);
 
         await _userRepository.SaveChanges();
+
+        var userConfirmedEmail = new UserConfirmedEmail()
+        {
+            UserId = userId
+        };
+        _eventBus.Publish(userConfirmedEmail);
 
         return Unit.Value;
     }
