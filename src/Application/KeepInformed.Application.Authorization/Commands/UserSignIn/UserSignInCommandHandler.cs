@@ -1,5 +1,6 @@
 ﻿using KeepInformed.Application.Authorization.Repositories;
-using KeepInformed.Application.Authorization.Services;
+using KeepInformed.Common.Encrypter;
+using KeepInformed.Common.Jwt;
 using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
 using KeepInformed.Contracts.Authorization.Exceptions;
 using MediatR;
@@ -46,7 +47,7 @@ public class UserSignInCommandHandler : IRequestHandler<UserSignInCommand>
         _userRepository.Update(user);
         await _userRepository.SaveChanges();
 
-        var jwtToken = _jwtTokenService.GenerateJwtToken(user);
+        var jwtToken = _jwtTokenService.GenerateJwtToken(user.Id, user.Email);
         _jwtTokenService.SetInCache(email, jwtToken);
 
         return Unit.Value;

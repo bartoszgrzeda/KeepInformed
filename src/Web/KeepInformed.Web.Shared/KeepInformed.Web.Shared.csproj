@@ -19,7 +19,9 @@
     <ProjectReference Include="..\..\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj" />
     <ProjectReference Include="..\..\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Encrypter\KeepInformed.Infrastructure.Encrypter.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.EventBus\KeepInformed.Infrastructure.EventBus.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Jwt\KeepInformed.Infrastructure.Jwt.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MailMessage\KeepInformed.Infrastructure.MailMessage.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MultiTenancy\KeepInformed.Infrastructure.MultiTenancy.csproj" />

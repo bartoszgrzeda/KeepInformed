@@ -1,4 +1,4 @@
-﻿namespace KeepInformed.Application.Authorization.Models;
+﻿namespace KeepInformed.Common.Jwt;
 
 public class JwtTokenModel
 {

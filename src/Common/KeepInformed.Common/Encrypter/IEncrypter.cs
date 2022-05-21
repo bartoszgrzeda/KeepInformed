@@ -1,4 +1,4 @@
-﻿namespace KeepInformed.Application.Authorization.Services;
+﻿namespace KeepInformed.Common.Encrypter;
 
 public interface IEncrypter
 {

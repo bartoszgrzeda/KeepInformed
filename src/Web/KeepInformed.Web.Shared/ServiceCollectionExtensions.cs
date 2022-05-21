@@ -10,7 +10,6 @@ using KeepInformed.Application.News.Mappers;
 using KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
 using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
 using KeepInformed.Application.Authorization.Repositories;
-using KeepInformed.Application.Authorization.Services;
 using KeepInformed.Application.Authorization.Commands.UserSignIn;
 using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
 using KeepInformed.Application.Authorization.Mappers;
@@ -26,6 +25,10 @@ using KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 using KeepInformed.Infrastructure.MasterDbAccess;
 using KeepInformed.Common.MultiTenancy;
 using KeepInformed.Infrastructure.MultiTenancy;
+using KeepInformed.Common.Encrypter;
+using KeepInformed.Infrastructure.Encrypter;
+using KeepInformed.Common.Jwt;
+using KeepInformed.Infrastructure.Jwt;
 
 namespace KeepInformed.Web.Shared;
 

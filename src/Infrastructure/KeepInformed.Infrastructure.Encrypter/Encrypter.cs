@@ -1,6 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using KeepInformed.Common.Encrypter;
+using System.Security.Cryptography;
 
-namespace KeepInformed.Application.Authorization.Services;
+namespace KeepInformed.Infrastructure.Encrypter;
 
 public class Encrypter : IEncrypter
 {

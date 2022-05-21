@@ -1,5 +1,5 @@
 ﻿using KeepInformed.Application.Authorization.Repositories;
-using KeepInformed.Application.Authorization.Services;
+using KeepInformed.Common.Encrypter;
 using KeepInformed.Common.EventBus;
 using KeepInformed.Contracts.Authorization.Commands.UserSignUp;
 using KeepInformed.Contracts.Authorization.Exceptions;

@@ -1,4 +1,4 @@
-﻿using KeepInformed.Application.Authorization.Services;
+﻿using KeepInformed.Common.Jwt;
 using KeepInformed.Contracts.Authorization.Exceptions;
 using KeepInformed.Contracts.Authorization.Queries.GetUserJwt;
 using MediatR;
