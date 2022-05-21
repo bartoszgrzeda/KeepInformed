@@ -24,6 +24,8 @@ using KeepInformed.Common.MailMessage;
 using KeepInformed.Infrastructure.MailMessage;
 using KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 using KeepInformed.Infrastructure.MasterDbAccess;
+using KeepInformed.Common.MultiTenancy;
+using KeepInformed.Infrastructure.MultiTenancy;
 
 namespace KeepInformed.Web.Shared;
 
@@ -49,6 +51,8 @@ public static class ServiceCollectionExtensions
 
         services.AddTransient<IMailMessageBuilder, MailMessageBuilder>();
         services.AddTransient<IMailMessageSender, MailMessageSender>();
+
+        services.AddScoped<ITenantProvider, TenantProvider>();
 
         return services;
     }

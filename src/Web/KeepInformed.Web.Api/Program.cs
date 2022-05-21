@@ -1,5 +1,6 @@
 using Autofac.Extensions.DependencyInjection;
 using KeepInformed.Web.Api;
+using KeepInformed.Web.Api.Middlewares;
 using KeepInformed.Web.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +38,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<AuthMiddleware>();
 
 app.MapControllers();
 

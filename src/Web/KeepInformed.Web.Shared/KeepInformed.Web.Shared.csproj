@@ -22,6 +22,7 @@
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.EventBus\KeepInformed.Infrastructure.EventBus.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MailMessage\KeepInformed.Infrastructure.MailMessage.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MultiTenancy\KeepInformed.Infrastructure.MultiTenancy.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.RabbitMq\KeepInformed.Infrastructure.RabbitMq.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Tvn\KeepInformed.Infrastructure.Tvn.csproj" />
   </ItemGroup>
