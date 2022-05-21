@@ -1,12 +1,13 @@
 ﻿using KeepInformed.Domain.Authorization.Entities;
-using KeepInformed.Application.Authorization.Repositories;
 using Microsoft.EntityFrameworkCore;
+using KeepInformed.Infrastructure.BaseDbAccess.Repositories;
+using KeepInformed.Application.Authorization.Repositories;
 
-namespace KeepInformed.Infrastructure.DbAccess.Repositories;
+namespace KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 
 public class UserEmailConfirmationRepository : BaseRepository<UserEmailConfirmation>, IUserEmailConfirmationRepository
 {
-    public UserEmailConfirmationRepository(KeepInformedContext context) : base(context)
+    public UserEmailConfirmationRepository(MasterKeepInformedDbContext context) : base(context)
     {
     }
 

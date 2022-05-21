@@ -2,7 +2,7 @@
 using KeepInformed.Common.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeepInformed.Infrastructure.DbAccess.Repositories;
+namespace KeepInformed.Infrastructure.BaseDbAccess.Repositories;
 
 public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
 {

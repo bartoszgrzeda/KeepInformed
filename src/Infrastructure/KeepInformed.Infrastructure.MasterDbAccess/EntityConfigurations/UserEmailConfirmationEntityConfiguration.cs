@@ -1,7 +1,8 @@
 ﻿using KeepInformed.Domain.Authorization.Entities;
+using KeepInformed.Infrastructure.BaseDbAccess.EntityConfigurations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
+namespace KeepInformed.Infrastructure.MasterDbAccess.EntityConfigurations;
 
 public class UserEmailConfirmationEntityConfiguration : BaseEntityConfiguration<UserEmailConfirmation>
 {

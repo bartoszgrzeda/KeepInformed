@@ -3,11 +3,9 @@ using KeepInformed.Infrastructure.Tvn.Services;
 using MediatR;
 using KeepInformed.Infrastructure.Tvn.Mappers;
 using KeepInformed.Common.XmlDeserializer;
-using KeepInformed.Infrastructure.DbAccess;
 using KeepInformed.Application.News.Services.Tvn;
 using KeepInformed.Application.News.Queries.GetNews;
 using KeepInformed.Application.News.Repositories;
-using KeepInformed.Infrastructure.DbAccess.Repositories;
 using KeepInformed.Application.News.Mappers;
 using KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
 using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
@@ -24,6 +22,8 @@ using KeepInformed.Web.Shared.ResponseManager;
 using FluentValidation;
 using KeepInformed.Common.MailMessage;
 using KeepInformed.Infrastructure.MailMessage;
+using KeepInformed.Infrastructure.MasterDbAccess.Repositories;
+using KeepInformed.Infrastructure.MasterDbAccess;
 
 namespace KeepInformed.Web.Shared;
 
@@ -83,7 +83,7 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection RegisterDbContexts(this IServiceCollection services)
     {
-        services.AddDbContext<KeepInformedContext>();
+        services.AddDbContext<MasterKeepInformedDbContext>();
 
         return services;
     }

@@ -1,7 +1,8 @@
 ﻿using KeepInformed.Common.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-namespace KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
+
+namespace KeepInformed.Infrastructure.BaseDbAccess.EntityConfigurations;
 
 public class BaseEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
 {

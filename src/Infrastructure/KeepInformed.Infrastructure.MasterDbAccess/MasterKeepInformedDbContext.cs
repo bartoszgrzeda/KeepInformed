@@ -1,11 +1,12 @@
 ﻿using KeepInformed.Domain.Authorization.Entities;
 using KeepInformed.Domain.News.Entities;
-using KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
+using KeepInformed.Infrastructure.BaseDbAccess;
+using KeepInformed.Infrastructure.MasterDbAccess.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeepInformed.Infrastructure.DbAccess;
+namespace KeepInformed.Infrastructure.MasterDbAccess;
 
-public class KeepInformedContext : DbContext
+public class MasterKeepInformedDbContext : BaseDbContext
 {
     public DbSet<News> News { get; set; }
     public DbSet<User> Users { get; set; }
@@ -13,7 +14,7 @@ public class KeepInformedContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=KeepInformed;Integrated Security=True;");
+        optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=KeepInformed-MasterDb;Integrated Security=True;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -18,9 +18,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj" />
     <ProjectReference Include="..\..\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
-    <ProjectReference Include="..\..\Common\KeepInformed.Common.Domain\KeepInformed.Common.Domain.csproj" />
     <ProjectReference Include="..\..\Domain\KeepInformed.Domain.Authorization\KeepInformed.Domain.Authorization.csproj" />
     <ProjectReference Include="..\..\Domain\KeepInformed.Domain.News\KeepInformed.Domain.News.csproj" />
+    <ProjectReference Include="..\KeepInformed.Infrastructure.BaseDbAccess\KeepInformed.Infrastructure.BaseDbAccess.csproj" />
   </ItemGroup>
 
 </Project>

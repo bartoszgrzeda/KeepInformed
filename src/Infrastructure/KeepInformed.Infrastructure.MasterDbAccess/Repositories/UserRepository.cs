@@ -1,12 +1,13 @@
 ﻿using KeepInformed.Domain.Authorization.Entities;
 using KeepInformed.Application.Authorization.Repositories;
 using Microsoft.EntityFrameworkCore;
+using KeepInformed.Infrastructure.BaseDbAccess.Repositories;
 
-namespace KeepInformed.Infrastructure.DbAccess.Repositories;
+namespace KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 
 public class UserRepository : BaseRepository<User>, IUserRepository
 {
-    public UserRepository(KeepInformedContext context) : base(context)
+    public UserRepository(MasterKeepInformedDbContext context) : base(context)
     {
     }
 

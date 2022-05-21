@@ -1,13 +1,14 @@
 ﻿using KeepInformed.Application.News.Repositories;
 using KeepInformed.Contracts.News.Common;
 using KeepInformed.Domain.News.Entities;
+using KeepInformed.Infrastructure.BaseDbAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeepInformed.Infrastructure.DbAccess.Repositories;
+namespace KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 
 public class NewsRepository : BaseRepository<News>, INewsRepository
 {
-    public NewsRepository(KeepInformedContext context) : base(context)
+    public NewsRepository(MasterKeepInformedDbContext context) : base(context)
     {
     }
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace KeepInformed.Infrastructure.DbAccess.Migrations
+namespace KeepInformed.Infrastructure.MasterDbAccess.Migrations
 {
     public partial class Initial : Migration
     {
@@ -38,6 +38,7 @@ namespace KeepInformed.Infrastructure.DbAccess.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastSignInDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsEmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -46,7 +47,7 @@ namespace KeepInformed.Infrastructure.DbAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserSignedUpConfirmations",
+                name: "UserEmailConfirmations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -56,9 +57,9 @@ namespace KeepInformed.Infrastructure.DbAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserSignedUpConfirmations", x => x.Id);
+                    table.PrimaryKey("PK_UserEmailConfirmations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserSignedUpConfirmations_Users_UserId",
+                        name: "FK_UserEmailConfirmations_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -66,8 +67,8 @@ namespace KeepInformed.Infrastructure.DbAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserSignedUpConfirmations_UserId",
-                table: "UserSignedUpConfirmations",
+                name: "IX_UserEmailConfirmations_UserId",
+                table: "UserEmailConfirmations",
                 column: "UserId");
         }
 
@@ -77,7 +78,7 @@ namespace KeepInformed.Infrastructure.DbAccess.Migrations
                 name: "News");
 
             migrationBuilder.DropTable(
-                name: "UserSignedUpConfirmations");
+                name: "UserEmailConfirmations");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -1,9 +1,8 @@
 ﻿using KeepInformed.Domain.Authorization.Entities;
-using KeepInformed.Domain.News.Entities;
-using Microsoft.EntityFrameworkCore;
+using KeepInformed.Infrastructure.BaseDbAccess.EntityConfigurations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace KeepInformed.Infrastructure.DbAccess.EntityConfigurations;
+namespace KeepInformed.Infrastructure.MasterDbAccess.EntityConfigurations;
 
 public class UserEntityConfiguration : BaseEntityConfiguration<User>
 {

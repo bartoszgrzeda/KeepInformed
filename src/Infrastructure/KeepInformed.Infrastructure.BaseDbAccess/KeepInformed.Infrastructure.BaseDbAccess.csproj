@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.0.1" />
-    <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KeepInformed.Infrastructure.MasterDbAccess\KeepInformed.Infrastructure.MasterDbAccess.csproj" />
+    <ProjectReference Include="..\..\Common\KeepInformed.Common.Domain\KeepInformed.Common.Domain.csproj" />
   </ItemGroup>
 
 </Project>

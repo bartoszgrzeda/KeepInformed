@@ -1,4 +1,4 @@
-﻿using KeepInformed.Infrastructure.DbAccess;
+﻿using KeepInformed.Infrastructure.MasterDbAccess;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
@@ -8,9 +8,9 @@ namespace KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : class, IRequest<TResponse>
 {
-    private readonly KeepInformedContext _context;
+    private readonly MasterKeepInformedDbContext _context;
 
-    public TransactionBehavior(KeepInformedContext context)
+    public TransactionBehavior(MasterKeepInformedDbContext context)
     {
         _context = context;
     }
