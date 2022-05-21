@@ -21,14 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Common.Domain"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1073B5BE-7074-4EE2-9849-3A9274CB068A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{3100C3B7-EB77-4581-9289-E723252B48C1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Contracts.News", "src\Contracts\KeepInformed.Contracts.News\KeepInformed.Contracts.News.csproj", "{C4148D36-CC23-40DE-9376-39A61E433D25}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Application.News", "src\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj", "{146A2D98-31AE-49C4-B45B-1D801542CED3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Domain.News", "src\Domain\KeepInformed.Domain.News\KeepInformed.Domain.News.csproj", "{BF77AEA3-0C2A-47FA-A850-02B585517A8A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Tests.UnitTests", "tests\KeepInformed.Tests.UnitTests\KeepInformed.Tests.UnitTests.csproj", "{E2648C2E-3F7C-45A9-8377-BEC0D60E6F3B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.MediatR", "src\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj", "{63386C3B-0BB3-406B-BC10-9579762CB422}"
@@ -55,17 +47,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbAccess", "DbAccess", "{E3F975C8-BA2D-4E72-B994-4B89E5B77566}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.BaseDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.BaseDbAccess\KeepInformed.Infrastructure.BaseDbAccess.csproj", "{B0EC6232-2294-4D01-88B4-7D75FFC44E90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.BaseDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.BaseDbAccess\KeepInformed.Infrastructure.BaseDbAccess.csproj", "{B0EC6232-2294-4D01-88B4-7D75FFC44E90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.MasterDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.MasterDbAccess\KeepInformed.Infrastructure.MasterDbAccess.csproj", "{171EC5D2-CD49-4DC6-8D63-22C576373C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.MasterDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.MasterDbAccess\KeepInformed.Infrastructure.MasterDbAccess.csproj", "{171EC5D2-CD49-4DC6-8D63-22C576373C7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.TenantDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.TenantDbAccess\KeepInformed.Infrastructure.TenantDbAccess.csproj", "{8F9B60A1-040D-4FA8-981C-D2C29808DD0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.TenantDbAccess", "src\Infrastructure\KeepInformed.Infrastructure.TenantDbAccess\KeepInformed.Infrastructure.TenantDbAccess.csproj", "{8F9B60A1-040D-4FA8-981C-D2C29808DD0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.MultiTenancy", "src\Infrastructure\KeepInformed.Infrastructure.MultiTenancy\KeepInformed.Infrastructure.MultiTenancy.csproj", "{9B028F04-2147-46EF-A353-9056E64878BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.MultiTenancy", "src\Infrastructure\KeepInformed.Infrastructure.MultiTenancy\KeepInformed.Infrastructure.MultiTenancy.csproj", "{9B028F04-2147-46EF-A353-9056E64878BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.Encrypter", "src\Infrastructure\KeepInformed.Infrastructure.Encrypter\KeepInformed.Infrastructure.Encrypter.csproj", "{500D2433-454C-420C-9D45-284C71F799DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.Encrypter", "src\Infrastructure\KeepInformed.Infrastructure.Encrypter\KeepInformed.Infrastructure.Encrypter.csproj", "{500D2433-454C-420C-9D45-284C71F799DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.Jwt", "src\Infrastructure\KeepInformed.Infrastructure.Jwt\KeepInformed.Infrastructure.Jwt.csproj", "{56085B0D-A454-4C92-87BE-9AC24E1F55E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure.Jwt", "src\Infrastructure\KeepInformed.Infrastructure.Jwt\KeepInformed.Infrastructure.Jwt.csproj", "{56085B0D-A454-4C92-87BE-9AC24E1F55E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MasterNews", "MasterNews", "{C4DCA811-1763-40E0-8175-459788D1E8CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Domain.MasterNews", "src\Domain\KeepInformed.Domain.MasterNews\KeepInformed.Domain.MasterNews.csproj", "{0D030BFC-C09D-4234-B008-D7F617AE60E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Application.MasterNews", "src\Application\KeepInformed.Application.MasterNews\KeepInformed.Application.MasterNews.csproj", "{FB9CB568-1660-4015-831C-0F0457BB9858}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Contracts.MasterNews", "src\Contracts\KeepInformed.Contracts.MasterNews\KeepInformed.Contracts.MasterNews.csproj", "{7AF02DCA-0707-4763-80AD-07C15D52F283}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Web.Api.Admin", "src\Web\KeepInformed.Web.Api.Admin\KeepInformed.Web.Api.Admin.csproj", "{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,18 +91,6 @@ Global
 		{7DEE04A4-EF1C-4668-B1BB-FC430347AB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DEE04A4-EF1C-4668-B1BB-FC430347AB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DEE04A4-EF1C-4668-B1BB-FC430347AB10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4148D36-CC23-40DE-9376-39A61E433D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4148D36-CC23-40DE-9376-39A61E433D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4148D36-CC23-40DE-9376-39A61E433D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4148D36-CC23-40DE-9376-39A61E433D25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{146A2D98-31AE-49C4-B45B-1D801542CED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{146A2D98-31AE-49C4-B45B-1D801542CED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{146A2D98-31AE-49C4-B45B-1D801542CED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{146A2D98-31AE-49C4-B45B-1D801542CED3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF77AEA3-0C2A-47FA-A850-02B585517A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF77AEA3-0C2A-47FA-A850-02B585517A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF77AEA3-0C2A-47FA-A850-02B585517A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF77AEA3-0C2A-47FA-A850-02B585517A8A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2648C2E-3F7C-45A9-8377-BEC0D60E6F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2648C2E-3F7C-45A9-8377-BEC0D60E6F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2648C2E-3F7C-45A9-8377-BEC0D60E6F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -169,6 +159,22 @@ Global
 		{56085B0D-A454-4C92-87BE-9AC24E1F55E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56085B0D-A454-4C92-87BE-9AC24E1F55E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56085B0D-A454-4C92-87BE-9AC24E1F55E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D030BFC-C09D-4234-B008-D7F617AE60E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D030BFC-C09D-4234-B008-D7F617AE60E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D030BFC-C09D-4234-B008-D7F617AE60E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D030BFC-C09D-4234-B008-D7F617AE60E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB9CB568-1660-4015-831C-0F0457BB9858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9CB568-1660-4015-831C-0F0457BB9858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9CB568-1660-4015-831C-0F0457BB9858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9CB568-1660-4015-831C-0F0457BB9858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AF02DCA-0707-4763-80AD-07C15D52F283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AF02DCA-0707-4763-80AD-07C15D52F283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AF02DCA-0707-4763-80AD-07C15D52F283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AF02DCA-0707-4763-80AD-07C15D52F283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,10 +184,6 @@ Global
 		{D0E86DED-F725-4065-9BAD-207A1C0E49AE} = {BFC15C53-2C26-4901-A68A-C2014E152D03}
 		{66A89E93-A806-4BB2-AA97-93363EEC95CA} = {4FFFB39D-D540-4180-95E1-2EA43CDBFA66}
 		{7DEE04A4-EF1C-4668-B1BB-FC430347AB10} = {BFC15C53-2C26-4901-A68A-C2014E152D03}
-		{3100C3B7-EB77-4581-9289-E723252B48C1} = {3760C9B2-B46E-4B21-93F7-630FB229364D}
-		{C4148D36-CC23-40DE-9376-39A61E433D25} = {3100C3B7-EB77-4581-9289-E723252B48C1}
-		{146A2D98-31AE-49C4-B45B-1D801542CED3} = {3100C3B7-EB77-4581-9289-E723252B48C1}
-		{BF77AEA3-0C2A-47FA-A850-02B585517A8A} = {3100C3B7-EB77-4581-9289-E723252B48C1}
 		{E2648C2E-3F7C-45A9-8377-BEC0D60E6F3B} = {1073B5BE-7074-4EE2-9849-3A9274CB068A}
 		{63386C3B-0BB3-406B-BC10-9579762CB422} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 		{D3B1FEEB-5C9B-4A00-B32C-9FB05AA0C474} = {1073B5BE-7074-4EE2-9849-3A9274CB068A}
@@ -201,6 +203,11 @@ Global
 		{9B028F04-2147-46EF-A353-9056E64878BB} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 		{500D2433-454C-420C-9D45-284C71F799DA} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 		{56085B0D-A454-4C92-87BE-9AC24E1F55E8} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
+		{C4DCA811-1763-40E0-8175-459788D1E8CF} = {3760C9B2-B46E-4B21-93F7-630FB229364D}
+		{0D030BFC-C09D-4234-B008-D7F617AE60E2} = {C4DCA811-1763-40E0-8175-459788D1E8CF}
+		{FB9CB568-1660-4015-831C-0F0457BB9858} = {C4DCA811-1763-40E0-8175-459788D1E8CF}
+		{7AF02DCA-0707-4763-80AD-07C15D52F283} = {C4DCA811-1763-40E0-8175-459788D1E8CF}
+		{1CA7C0DA-E11D-4AE5-9473-584A9E1EAD15} = {4FFFB39D-D540-4180-95E1-2EA43CDBFA66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {948BAA56-90E6-49B0-9D38-D102E9041721}

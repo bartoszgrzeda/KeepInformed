@@ -3,12 +3,8 @@ using KeepInformed.Infrastructure.Tvn.Services;
 using MediatR;
 using KeepInformed.Infrastructure.Tvn.Mappers;
 using KeepInformed.Common.XmlDeserializer;
-using KeepInformed.Application.News.Services.Tvn;
-using KeepInformed.Application.News.Queries.GetNews;
-using KeepInformed.Application.News.Repositories;
-using KeepInformed.Application.News.Mappers;
+using KeepInformed.Application.MasterNews.Services.Tvn;
 using KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
-using KeepInformed.Contracts.News.Commands.MarkNewsAsSeen;
 using KeepInformed.Application.Authorization.Repositories;
 using KeepInformed.Application.Authorization.Commands.UserSignIn;
 using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
@@ -32,6 +28,9 @@ using KeepInformed.Infrastructure.Jwt;
 using KeepInformed.Common.DbAccess;
 using KeepInformed.Infrastructure.BaseDbAccess.ConnectionStringProvider;
 using KeepInformed.Infrastructure.TenantDbAccess;
+using KeepInformed.Application.MasterNews.Repositories.Tvn;
+using KeepInformed.Application.MasterNews.Commands.Tvn.SynchronizeTvnNewestNews;
+using KeepInformed.Infrastructure.MasterDbAccess.Repositories.Tvn;
 
 namespace KeepInformed.Web.Shared;
 
@@ -44,7 +43,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IHttpClientService, HttpClientService>();
         services.AddTransient<IXmlDeserializer, XmlDeserializer>();
 
-        services.AddTransient<INewsRepository, NewsRepository>();
+        services.AddTransient<ITvnNewsRepository, TvnNewsRepository>();
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IUserEmailConfirmationRepository, UserEmailConfirmationRepository>();
 
@@ -58,9 +57,6 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IMailMessageBuilder, MailMessageBuilder>();
         services.AddTransient<IMailMessageSender, MailMessageSender>();
 
-        services.AddScoped<ITenantProvider, TenantProvider>();
-        services.AddTransient<IConnectionStringProvider, ConnectionStringProvider>();
-
         return services;
     }
 
@@ -69,7 +65,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
 
-        services.AddMediatR(typeof(GetNewsQueryHandler)); // News module
+        services.AddMediatR(typeof(SynchronizeTvnNewestNewsCommandHandler)); // MasterNews module
         services.AddMediatR(typeof(UserSignInCommandHandler)); // Authorization module
 
         return services;
@@ -77,7 +73,6 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection RegisterValidators(this IServiceCollection services)
     {
-        services.AddValidatorsFromAssemblyContaining(typeof(MarkNewsAsSeenCommandValidator)); // News module
         services.AddValidatorsFromAssemblyContaining(typeof(UserSignInCommandValidator)); // Authorization module
 
         return services;
@@ -86,7 +81,6 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(TvnItemProfile)); // Tvn infrastructure
-        services.AddAutoMapper(typeof(NewsProfile)); // News module
         services.AddAutoMapper(typeof(UserProfile)); // Authorization module
 
         return services;
@@ -94,6 +88,9 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection RegisterDbContexts(this IServiceCollection services)
     {
+        services.AddScoped<ITenantProvider, TenantProvider>();
+        services.AddTransient<IConnectionStringProvider, ConnectionStringProvider>();
+
         services.AddDbContext<MasterKeepInformedDbContext>();
         services.AddDbContext<TenantKeepInformedDbContext>();
 

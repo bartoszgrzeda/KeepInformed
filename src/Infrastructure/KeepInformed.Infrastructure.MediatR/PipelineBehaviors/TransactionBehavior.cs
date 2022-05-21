@@ -1,4 +1,6 @@
-﻿using KeepInformed.Infrastructure.MasterDbAccess;
+﻿using KeepInformed.Common.MediatR;
+using KeepInformed.Infrastructure.MasterDbAccess;
+using KeepInformed.Infrastructure.TenantDbAccess;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
@@ -8,16 +10,36 @@ namespace KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : class, IRequest<TResponse>
 {
-    private readonly MasterKeepInformedDbContext _context;
+    private readonly MasterKeepInformedDbContext _masterContext;
+    private readonly TenantKeepInformedDbContext _tenantContext;
 
-    public TransactionBehavior(MasterKeepInformedDbContext context)
+    public TransactionBehavior(MasterKeepInformedDbContext masterContext, TenantKeepInformedDbContext tenantContext)
     {
-        _context = context;
+        _masterContext = masterContext;
+        _tenantContext = tenantContext;
     }
 
     public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
     {
-        var currentTransaction = _context.Database.CurrentTransaction;
+        var isMasterRequest = request is IMasterCommand || request is IMasterQuery<TResponse>;
+        var isTenantRequest = request is ITenantCommand || request is ITenantQuery<TResponse>;
+
+        DbContext context;
+
+        if (isMasterRequest)
+        {
+            context = _masterContext;
+        }
+        else if (isTenantRequest)
+        {
+            context = _tenantContext;
+        }
+        else
+        {
+            throw new Exception("INVALID_REQUEST");
+        }
+
+        var currentTransaction = context.Database.CurrentTransaction;
 
         if (currentTransaction != null)
         {
@@ -26,7 +48,7 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
 
         var response = default(TResponse);
 
-        using (var transaction = await _context.Database.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken))
+        using (var transaction = await context.Database.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken))
         {
             try
             {

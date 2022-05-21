@@ -5,7 +5,7 @@ using KeepInformed.Application.Authorization.Repositories;
 
 namespace KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 
-public class UserEmailConfirmationRepository : BaseRepository<UserEmailConfirmation>, IUserEmailConfirmationRepository
+public class UserEmailConfirmationRepository : BaseMasterRepository<UserEmailConfirmation>, IUserEmailConfirmationRepository
 {
     public UserEmailConfirmationRepository(MasterKeepInformedDbContext context) : base(context)
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KeepInformed.Infrastructure.BaseDbAccess;
 
-public class BaseDbContext : DbContext
+public abstract class BaseDbContext : DbContext
 {
     protected readonly IConnectionStringProvider _connectionStringProvider;
 

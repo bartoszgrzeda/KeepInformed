@@ -5,7 +5,7 @@ using KeepInformed.Infrastructure.BaseDbAccess.Repositories;
 
 namespace KeepInformed.Infrastructure.MasterDbAccess.Repositories;
 
-public class UserRepository : BaseRepository<User>, IUserRepository
+public class UserRepository : BaseMasterRepository<User>, IUserRepository
 {
     public UserRepository(MasterKeepInformedDbContext context) : base(context)
     {

@@ -1,7 +1,7 @@
-﻿using MediatR;
+﻿using KeepInformed.Common.MediatR;
 
 namespace KeepInformed.Contracts.Authorization.Queries.GetUsers;
 
-public class GetUsersQuery : IRequest<GetUsersQueryResponse>
+public class GetUsersQuery : IMasterQuery<GetUsersQueryResponse>
 {
 }

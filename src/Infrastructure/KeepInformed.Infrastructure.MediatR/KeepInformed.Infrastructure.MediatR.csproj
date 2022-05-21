@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KeepInformed.Infrastructure.MasterDbAccess\KeepInformed.Infrastructure.MasterDbAccess.csproj" />
+    <ProjectReference Include="..\KeepInformed.Infrastructure.TenantDbAccess\KeepInformed.Infrastructure.TenantDbAccess.csproj" />
   </ItemGroup>
 
 </Project>

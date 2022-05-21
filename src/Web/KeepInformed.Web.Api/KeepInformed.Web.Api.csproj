@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
     <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.EventBus\KeepInformed.Infrastructure.EventBus.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj" />

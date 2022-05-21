@@ -17,8 +17,4 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Application\KeepInformed.Application.News\KeepInformed.Application.News.csproj" />
-  </ItemGroup>
 </Project>

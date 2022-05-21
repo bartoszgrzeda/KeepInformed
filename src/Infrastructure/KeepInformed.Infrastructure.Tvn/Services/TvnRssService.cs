@@ -3,8 +3,8 @@ using KeepInformed.Common.HttpClient;
 using KeepInformed.Infrastructure.Tvn.Common;
 using AutoMapper;
 using KeepInformed.Common.XmlDeserializer;
-using KeepInformed.Application.News.Services.Tvn;
-using KeepInformed.Contracts.News.Dto.Tvn;
+using KeepInformed.Application.MasterNews.Services.Tvn;
+using KeepInformed.Contracts.MasterNews.Dto.Tvn;
 
 namespace KeepInformed.Infrastructure.Tvn.Services;
 
