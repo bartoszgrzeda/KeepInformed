@@ -17,4 +17,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Application\KeepInformed.Application.Authorization\KeepInformed.Application.Authorization.csproj" />
+    <ProjectReference Include="..\..\src\Application\KeepInformed.Application.MasterNews\KeepInformed.Application.MasterNews.csproj" />
+    <ProjectReference Include="..\..\src\Domain\KeepInformed.Domain.Authorization\KeepInformed.Domain.Authorization.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\KeepInformed.Infrastructure.Encrypter\KeepInformed.Infrastructure.Encrypter.csproj" />
+  </ItemGroup>
 </Project>
