@@ -17,3 +17,4 @@ Using:
 - Jwt auth
 - Cache
 - RabbitMQ
+- Azure CI
