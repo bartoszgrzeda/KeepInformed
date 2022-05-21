@@ -29,6 +29,8 @@ using KeepInformed.Common.Encrypter;
 using KeepInformed.Infrastructure.Encrypter;
 using KeepInformed.Common.Jwt;
 using KeepInformed.Infrastructure.Jwt;
+using KeepInformed.Common.DbAccess;
+using KeepInformed.Infrastructure.BaseDbAccess.ConnectionStringProvider;
 
 namespace KeepInformed.Web.Shared;
 
@@ -56,6 +58,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IMailMessageSender, MailMessageSender>();
 
         services.AddScoped<ITenantProvider, TenantProvider>();
+        services.AddTransient<IConnectionStringProvider, ConnectionStringProvider>();
 
         return services;
     }

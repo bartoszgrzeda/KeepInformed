@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\KeepInformed.Common.Domain\KeepInformed.Common.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\KeepInformed.Common\KeepInformed.Common.csproj" />
   </ItemGroup>
 
 </Project>

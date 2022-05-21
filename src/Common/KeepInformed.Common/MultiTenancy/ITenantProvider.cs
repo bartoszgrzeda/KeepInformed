@@ -4,5 +4,4 @@ public interface ITenantProvider
 {
     void SetUserId(Guid userId);
     Guid? GetUserId();
-    string GetConnectionString();
 }
