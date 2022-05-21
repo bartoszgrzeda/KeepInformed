@@ -31,6 +31,7 @@ using KeepInformed.Common.Jwt;
 using KeepInformed.Infrastructure.Jwt;
 using KeepInformed.Common.DbAccess;
 using KeepInformed.Infrastructure.BaseDbAccess.ConnectionStringProvider;
+using KeepInformed.Infrastructure.TenantDbAccess;
 
 namespace KeepInformed.Web.Shared;
 
@@ -94,6 +95,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterDbContexts(this IServiceCollection services)
     {
         services.AddDbContext<MasterKeepInformedDbContext>();
+        services.AddDbContext<TenantKeepInformedDbContext>();
 
         return services;
     }
