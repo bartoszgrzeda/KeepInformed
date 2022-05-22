@@ -22,11 +22,11 @@ public class SynchronizeTvnNewsCommandHandler : IRequestHandler<SynchronizeTvnNe
 
     public async Task<Unit> Handle(SynchronizeTvnNewsCommand request, CancellationToken cancellationToken)
     {
-        var latestSynchronization = await _synchronizationRepository.GetLatestForNewsSource(NewsSource.Tvn);
+        var latestSynchronization = await _synchronizationRepository.GetLatesForNewsSourceByLatestNewsPublicationDate(NewsSource.Tvn);
 
         var getTvnNewsQuery = new GetTvnNewsQuery()
         {
-            PublicationDate = latestSynchronization.Date
+            PublicationDate = latestSynchronization?.LatestNewsPublicationDate
         };
         var tvnNews = await _mediator.Send(getTvnNewsQuery);
 
@@ -44,7 +44,10 @@ public class SynchronizeTvnNewsCommandHandler : IRequestHandler<SynchronizeTvnNe
             await _newsRepository.Add(newNews);
         }
 
-        var newSynchronization = new Synchronization(Guid.NewGuid(), DateTime.UtcNow, NewsSource.Tvn, news.Count());
+        var latestNewsPublicationDate = news.OrderByDescending(x => x.PublicationDate)
+            .First()
+            .PublicationDate;
+        var newSynchronization = new Synchronization(Guid.NewGuid(), NewsSource.Tvn, news.Count(), latestNewsPublicationDate);
 
         await _synchronizationRepository.Add(newSynchronization);
 

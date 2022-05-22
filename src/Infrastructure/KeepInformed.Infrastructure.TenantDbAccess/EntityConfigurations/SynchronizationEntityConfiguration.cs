@@ -10,7 +10,7 @@ public class SynchronizationEntityConfiguration : BaseEntityConfiguration<Synchr
     {
         base.Configure(builder);
 
-        builder.HasIndex(x => x.Date);
+        builder.HasIndex(x => x.LatestNewsPublicationDate);
         builder.HasIndex(x => x.NewsSource);
     }
 }

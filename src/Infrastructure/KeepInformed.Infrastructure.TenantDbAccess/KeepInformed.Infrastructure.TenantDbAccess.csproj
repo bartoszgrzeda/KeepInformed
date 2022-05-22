@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\KeepInformed.Application.TenantNews\KeepInformed.Application.TenantNews.csproj" />
+    <ProjectReference Include="..\..\Domain\KeepInformed.Domain.TenantNews\KeepInformed.Domain.TenantNews.csproj" />
     <ProjectReference Include="..\KeepInformed.Infrastructure.BaseDbAccess\KeepInformed.Infrastructure.BaseDbAccess.csproj" />
   </ItemGroup>
 

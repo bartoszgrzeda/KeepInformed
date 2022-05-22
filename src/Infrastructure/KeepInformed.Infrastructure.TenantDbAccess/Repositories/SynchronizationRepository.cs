@@ -12,10 +12,10 @@ public class SynchronizationRepository : BaseRepository<Synchronization>, ISynch
     {
     }
 
-    public async Task<Synchronization?> GetLatestForNewsSource(NewsSource newsSource)
+    public async Task<Synchronization?> GetLatesForNewsSourceByLatestNewsPublicationDate(NewsSource newsSource)
     {
         return await Entities.Where(x => x.NewsSource == newsSource)
-            .OrderByDescending(x => x.Date)
+            .OrderByDescending(x => x.LatestNewsPublicationDate)
             .FirstOrDefaultAsync();
     }
 }

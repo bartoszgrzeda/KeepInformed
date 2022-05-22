@@ -5,14 +5,14 @@ namespace KeepInformed.Domain.TenantNews.Entities;
 
 public class Synchronization : BaseEntity
 {
-    public DateTime Date { get; private set; }
     public NewsSource NewsSource { get; private set; }
     public int NewsCount { get; private set; }
+    public DateTime LatestNewsPublicationDate { get; private set; }
 
-    public Synchronization(Guid id, DateTime date, NewsSource newsSource, int newsCount) : base(id)
+    public Synchronization(Guid id, NewsSource newsSource, int newsCount, DateTime latestNewsPublicationDate) : base(id)
     {
-        Date = date;
         NewsSource = newsSource;
         NewsCount = newsCount;
+        LatestNewsPublicationDate = latestNewsPublicationDate;
     }
 }

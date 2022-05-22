@@ -14,4 +14,9 @@ public class TvnNewsRepository : BaseMasterRepository<TvnNews>, ITvnNewsReposito
     {
         return await Entities.SingleOrDefaultAsync(x => x.Guid == guid);
     }
+
+    public IQueryable<TvnNews> GetByPublicationDate(DateTime publicationDate)
+    {
+        return Entities.Where(x => x.PublicationDate >= publicationDate);
+    }
 }

@@ -6,5 +6,5 @@ namespace KeepInformed.Application.TenantNews.Repositories;
 
 public interface ISynchronizationRepository : IBaseRepository<Synchronization>
 {
-    Task<Synchronization?> GetLatestForNewsSource(NewsSource newsSource);
+    Task<Synchronization?> GetLatesForNewsSourceByLatestNewsPublicationDate(NewsSource newsSource);
 }

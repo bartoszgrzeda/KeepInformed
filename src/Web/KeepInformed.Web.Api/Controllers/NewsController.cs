@@ -2,11 +2,13 @@
 using KeepInformed.Contracts.TenantNews.Commands.SynchronizeTvnNews;
 using KeepInformed.Contracts.TenantNews.IntegrationEvents;
 using KeepInformed.Web.Shared.ResponseManager;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KeepInformed.Web.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/News")]
 public class NewsController : Controller
 {
@@ -20,7 +22,7 @@ public class NewsController : Controller
     }
 
     [HttpPut("TvnNews/Synchronize")]
-    public async Task<IActionResult> SignIn(SynchronizeTvnNewsCommand command)
+    public async Task<IActionResult> SignIn()
     {
         var userId = _tenantProvider.GetUserId();
         var integrationEvent = new SynchronizeTvnNews()
