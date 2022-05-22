@@ -5,6 +5,7 @@ Patterns:
 - DDD
 - Onion architecture
 - Integration events
+- Multi tenancy
 
 Using:
 - MediatR
