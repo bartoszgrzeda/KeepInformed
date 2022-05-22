@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddTransient<IIntegrationEventHandler<UserSignedUp>, SendUserEmailConfirmation>();
         services.AddTransient<IIntegrationEventHandler<UserConfirmedEmail>, CreateUserDatabase>();
+        services.AddTransient<IIntegrationEventHandler<Contracts.TenantNews.IntegrationEvents.SynchronizeTvnNews>, SynchronizeTvnNews>();
 
         return services;
     }

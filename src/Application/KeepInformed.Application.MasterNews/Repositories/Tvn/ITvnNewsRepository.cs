@@ -6,4 +6,5 @@ namespace KeepInformed.Application.MasterNews.Repositories.Tvn;
 public interface ITvnNewsRepository : IBaseRepository<TvnNews>
 {
     Task<TvnNews?> GetByGuid(string guid);
+    IQueryable<TvnNews> GetByPublicationDate(DateTime publicationDate);
 }

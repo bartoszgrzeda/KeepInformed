@@ -1,4 +1,6 @@
 ﻿using FluentValidation;
+using KeepInformed.Common.EventBus;
+using KeepInformed.Common.Events;
 using KeepInformed.Common.Exceptions;
 using KeepInformed.Web.Shared.Models;
 using MediatR;
@@ -9,10 +11,12 @@ namespace KeepInformed.Web.Shared.ResponseManager;
 public class ResponseManager : IResponseManager
 {
     private readonly IMediator _mediator;
+    private readonly IEventBus _eventBus;
 
-    public ResponseManager(IMediator mediator)
+    public ResponseManager(IMediator mediator, IEventBus eventBus)
     {
         _mediator = mediator;
+        _eventBus = eventBus;
     }
 
     public async Task<IActionResult> SendCommand(IRequest command)
@@ -39,6 +43,32 @@ public class ResponseManager : IResponseManager
         catch (Exception)
         {
             var response = new Response("UNHANDLED_EXCEPTION");
+
+            return new ObjectResult(response)
+            {
+                StatusCode = 500
+            };
+        }
+    }
+
+    public async Task<IActionResult> SendIntegrationEvent<T>(T integrationEvent) where T : IntegrationEvent
+    {
+        try
+        {
+            _eventBus.Publish(integrationEvent);
+            var response = new Response(null);
+
+            return new JsonResult(response);
+        }
+        catch (DomainException domainException)
+        {
+            var response = new Response(domainException.Message);
+
+            return new BadRequestObjectResult(response);
+        }
+        catch (Exception exception)
+        {
+            var response = new Response(exception.Message);
 
             return new ObjectResult(response)
             {

@@ -31,6 +31,11 @@ using KeepInformed.Infrastructure.TenantDbAccess;
 using KeepInformed.Application.MasterNews.Repositories.Tvn;
 using KeepInformed.Application.MasterNews.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Infrastructure.MasterDbAccess.Repositories.Tvn;
+using KeepInformed.Application.TenantNews.Repositories;
+using KeepInformed.Infrastructure.TenantDbAccess.Repositories;
+using KeepInformed.Application.TenantNews.Commands.SynchronizeTvnNews;
+using KeepInformed.Contracts.TenantNews.Commands.SynchronizeTvnNews;
+using KeepInformed.Application.MasterNews.Mappers.Tvn;
 
 namespace KeepInformed.Web.Shared;
 
@@ -46,6 +51,8 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ITvnNewsRepository, TvnNewsRepository>();
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IUserEmailConfirmationRepository, UserEmailConfirmationRepository>();
+        services.AddTransient<INewsRepository, NewsRepository>();
+        services.AddTransient<ISynchronizationRepository, SynchronizationRepository>();
 
         services.AddTransient<ITvnRssService, TvnRssService>();
 
@@ -69,6 +76,7 @@ public static class ServiceCollectionExtensions
 
         services.AddMediatR(typeof(SynchronizeTvnNewestNewsCommandHandler)); // MasterNews module
         services.AddMediatR(typeof(UserSignInCommandHandler)); // Authorization module
+        services.AddMediatR(typeof(SynchronizeTvnNewsCommandHandler)); // TenantNews module
 
         return services;
     }
@@ -84,6 +92,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddAutoMapper(typeof(TvnItemProfile)); // Tvn infrastructure
         services.AddAutoMapper(typeof(UserProfile)); // Authorization module
+        services.AddAutoMapper(typeof(TvnNewsProfile)); // MasterNews module
 
         return services;
     }
