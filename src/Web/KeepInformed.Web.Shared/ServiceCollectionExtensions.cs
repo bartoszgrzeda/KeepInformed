@@ -36,6 +36,8 @@ using KeepInformed.Application.TenantNews.Commands.SynchronizeTvnNews;
 using KeepInformed.Application.MasterNews.Mappers.Tvn;
 using KeepInformed.Common.Serializers;
 using KeepInformed.Infrastructure.Serializers;
+using KeepInformed.Common.Notifications;
+using KeepInformed.Infrastructure.SignalR;
 
 namespace KeepInformed.Web.Shared;
 
@@ -60,11 +62,13 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IJwtTokenService, JwtTokenService>();
 
         services.AddMemoryCache();
+        services.AddSignalR();
 
         services.AddTransient<IMailMessageBuilder, MailMessageBuilder>();
         services.AddTransient<IMailMessageSender, MailMessageSender>();
 
         services.AddTransient<ITenantDatabaseService, TenantDatabaseService>();
+        services.AddTransient<INotificationService, SignalRNotificationService>();
 
         return services;
     }

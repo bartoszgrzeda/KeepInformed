@@ -1,6 +1,8 @@
 ﻿using KeepInformed.Application.MasterNews.Repositories.Tvn;
 using KeepInformed.Application.MasterNews.Services.Tvn;
+using KeepInformed.Common.Notifications;
 using KeepInformed.Contracts.MasterNews.Commands.Tvn.SynchronizeTvnNewestNews;
+using KeepInformed.Contracts.MasterNews.Common;
 using KeepInformed.Domain.MasterNews.Entities.Tvn;
 using MediatR;
 
@@ -10,11 +12,13 @@ public class SynchronizeTvnNewestNewsCommandHandler : IRequestHandler<Synchroniz
 {
     private readonly ITvnNewsRepository _tvnNewsRepository;
     private readonly ITvnRssService _tvnRssService;
+    private readonly INotificationService _notificationService;
 
-    public SynchronizeTvnNewestNewsCommandHandler(ITvnNewsRepository tvnNewsRepository, ITvnRssService tvnRssService)
+    public SynchronizeTvnNewestNewsCommandHandler(ITvnNewsRepository tvnNewsRepository, ITvnRssService tvnRssService, INotificationService notificationService)
     {
         _tvnNewsRepository = tvnNewsRepository;
         _tvnRssService = tvnRssService;
+        _notificationService = notificationService;
     }
 
     public async Task<Unit> Handle(SynchronizeTvnNewestNewsCommand request, CancellationToken cancellationToken)
@@ -46,6 +50,8 @@ public class SynchronizeTvnNewestNewsCommandHandler : IRequestHandler<Synchroniz
         }
 
         await _tvnNewsRepository.SaveChanges();
+
+        await _notificationService.NotifyAllUsers(NotificationMethod.TVN_NEWEST_NEWS_SYNCHRONIZED);
 
         return Unit.Value;
     }

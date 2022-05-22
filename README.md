@@ -19,3 +19,4 @@ Using:
 - Cache
 - RabbitMQ
 - Azure CI
+- SignalR

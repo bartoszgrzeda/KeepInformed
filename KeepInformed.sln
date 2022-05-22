@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Tools.Migratio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.Serializers", "src\Infrastructure\KeepInformed.Infrastructure.Serializers\KeepInformed.Infrastructure.Serializers.csproj", "{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.SignalR", "src\Infrastructure\KeepInformed.Infrastructure.SignalR\KeepInformed.Infrastructure.SignalR.csproj", "{833ED23E-CAB9-418D-A5BC-A8213FE906C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,10 @@ Global
 		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{833ED23E-CAB9-418D-A5BC-A8213FE906C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833ED23E-CAB9-418D-A5BC-A8213FE906C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833ED23E-CAB9-418D-A5BC-A8213FE906C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833ED23E-CAB9-418D-A5BC-A8213FE906C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -248,6 +254,7 @@ Global
 		{B7F11792-7A81-4D22-B3CC-EFF782832F5B} = {AA1DA218-00A6-40D6-BD0F-6523DABF94E8}
 		{460521FE-7590-4881-B086-CA17D4A4D801} = {85F184D2-45E2-4866-9E5B-7AEC09ED0974}
 		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
+		{833ED23E-CAB9-418D-A5BC-A8213FE906C1} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {948BAA56-90E6-49B0-9D38-D102E9041721}

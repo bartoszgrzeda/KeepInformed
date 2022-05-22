@@ -1,4 +1,5 @@
 using Autofac.Extensions.DependencyInjection;
+using KeepInformed.Infrastructure.SignalR.Hubs;
 using KeepInformed.Web.Api;
 using KeepInformed.Web.Api.Middlewares;
 using KeepInformed.Web.Shared;
@@ -42,5 +43,6 @@ app.UseAuthorization();
 app.UseMiddleware<AuthMiddleware>();
 
 app.MapControllers();
+app.MapHub<NotificationHub>("/NotificationHub");
 
 app.Run();

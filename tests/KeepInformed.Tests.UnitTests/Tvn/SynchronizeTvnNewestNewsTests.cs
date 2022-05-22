@@ -1,6 +1,7 @@
 ﻿using KeepInformed.Application.MasterNews.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Application.MasterNews.Repositories.Tvn;
 using KeepInformed.Application.MasterNews.Services.Tvn;
+using KeepInformed.Common.Notifications;
 using KeepInformed.Contracts.MasterNews.Commands.Tvn.SynchronizeTvnNewestNews;
 using KeepInformed.Contracts.MasterNews.Dto.Tvn;
 using KeepInformed.Tests.UnitTests.Mocks;
@@ -18,11 +19,13 @@ namespace KeepInformed.Tests.UnitTests.Tvn;
 public class SynchronizeTvnNewestNewsTests
 {
     private ITvnNewsRepository _tvnNewsRepository;
+    private INotificationService _notificationService;
 
     [TestInitialize]
     public void Initialize()
     {
         _tvnNewsRepository = new TvnNewsRepositoryMock();
+        _notificationService = new NotificationServiceMock();
     }
 
     [TestMethod]
@@ -56,7 +59,7 @@ public class SynchronizeTvnNewestNewsTests
             .ReturnsAsync(new List<TvnRssItemDto>() { tvnNews1, tvnNews2 });
 
         var command = new SynchronizeTvnNewestNewsCommand();
-        var commandHandler = new SynchronizeTvnNewestNewsCommandHandler(_tvnNewsRepository, tvnRssServiceMock.Object);
+        var commandHandler = new SynchronizeTvnNewestNewsCommandHandler(_tvnNewsRepository, tvnRssServiceMock.Object, _notificationService);
 
         // ACT
         await commandHandler.Handle(command, new CancellationToken());

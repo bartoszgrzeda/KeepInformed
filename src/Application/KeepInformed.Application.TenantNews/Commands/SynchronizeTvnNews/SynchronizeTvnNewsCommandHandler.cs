@@ -1,4 +1,5 @@
 ﻿using KeepInformed.Application.TenantNews.Repositories;
+using KeepInformed.Common.Notifications;
 using KeepInformed.Contracts.MasterNews.Queries.GetTvnNews;
 using KeepInformed.Contracts.TenantNews.Commands.SynchronizeTvnNews;
 using KeepInformed.Contracts.TenantNews.Common;
@@ -12,12 +13,14 @@ public class SynchronizeTvnNewsCommandHandler : IRequestHandler<SynchronizeTvnNe
     private readonly ISynchronizationRepository _synchronizationRepository;
     private readonly IMediator _mediator;
     private readonly INewsRepository _newsRepository;
+    private readonly INotificationService _notificationService;
 
-    public SynchronizeTvnNewsCommandHandler(ISynchronizationRepository synchronizationRepository, IMediator mediator, INewsRepository newsRepository)
+    public SynchronizeTvnNewsCommandHandler(ISynchronizationRepository synchronizationRepository, IMediator mediator, INewsRepository newsRepository, INotificationService notificationService)
     {
         _synchronizationRepository = synchronizationRepository;
         _mediator = mediator;
         _newsRepository = newsRepository;
+        _notificationService = notificationService;
     }
 
     public async Task<Unit> Handle(SynchronizeTvnNewsCommand request, CancellationToken cancellationToken)
@@ -52,6 +55,8 @@ public class SynchronizeTvnNewsCommandHandler : IRequestHandler<SynchronizeTvnNe
         await _synchronizationRepository.Add(newSynchronization);
 
         await _synchronizationRepository.SaveChanges();
+
+        await _notificationService.NotifyCurentUser(NotificationMethod.TVN_NEWS_SYNCHRONIZED);
 
         return Unit.Value;
     }
