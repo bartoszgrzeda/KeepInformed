@@ -1,4 +1,4 @@
-﻿namespace KeepInformed.Common.XmlDeserializer;
+﻿namespace KeepInformed.Common.Serializers;
 
 public interface IXmlDeserializer
 {

@@ -71,15 +71,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Web.Api.Admin"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TenantNews", "TenantNews", "{AA1DA218-00A6-40D6-BD0F-6523DABF94E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Domain.TenantNews", "src\Domain\KeepInformed.Domain.TenantNews\KeepInformed.Domain.TenantNews.csproj", "{C219EC76-A2F9-4F7D-934F-FBDFE682438C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Domain.TenantNews", "src\Domain\KeepInformed.Domain.TenantNews\KeepInformed.Domain.TenantNews.csproj", "{C219EC76-A2F9-4F7D-934F-FBDFE682438C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Application.TenantNews", "src\Application\KeepInformed.Application.TenantNews\KeepInformed.Application.TenantNews.csproj", "{E9841000-4683-4BDE-98DB-E1E5300C8A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Application.TenantNews", "src\Application\KeepInformed.Application.TenantNews\KeepInformed.Application.TenantNews.csproj", "{E9841000-4683-4BDE-98DB-E1E5300C8A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Contracts.TenantNews", "src\Contracts\KeepInformed.Contracts.TenantNews\KeepInformed.Contracts.TenantNews.csproj", "{B7F11792-7A81-4D22-B3CC-EFF782832F5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Contracts.TenantNews", "src\Contracts\KeepInformed.Contracts.TenantNews\KeepInformed.Contracts.TenantNews.csproj", "{B7F11792-7A81-4D22-B3CC-EFF782832F5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{85F184D2-45E2-4866-9E5B-7AEC09ED0974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Tools.MigrationTool", "src\Tools\KeepInformed.Tools.MigrationTool\KeepInformed.Tools.MigrationTool.csproj", "{460521FE-7590-4881-B086-CA17D4A4D801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Tools.MigrationTool", "src\Tools\KeepInformed.Tools.MigrationTool\KeepInformed.Tools.MigrationTool.csproj", "{460521FE-7590-4881-B086-CA17D4A4D801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Infrastructure.Serializers", "src\Infrastructure\KeepInformed.Infrastructure.Serializers\KeepInformed.Infrastructure.Serializers.csproj", "{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +205,10 @@ Global
 		{460521FE-7590-4881-B086-CA17D4A4D801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{460521FE-7590-4881-B086-CA17D4A4D801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{460521FE-7590-4881-B086-CA17D4A4D801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +247,7 @@ Global
 		{E9841000-4683-4BDE-98DB-E1E5300C8A06} = {AA1DA218-00A6-40D6-BD0F-6523DABF94E8}
 		{B7F11792-7A81-4D22-B3CC-EFF782832F5B} = {AA1DA218-00A6-40D6-BD0F-6523DABF94E8}
 		{460521FE-7590-4881-B086-CA17D4A4D801} = {85F184D2-45E2-4866-9E5B-7AEC09ED0974}
+		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {948BAA56-90E6-49B0-9D38-D102E9041721}

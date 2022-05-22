@@ -25,6 +25,7 @@
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MediatR\KeepInformed.Infrastructure.MediatR.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.MultiTenancy\KeepInformed.Infrastructure.MultiTenancy.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.RabbitMq\KeepInformed.Infrastructure.RabbitMq.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Serializers\KeepInformed.Infrastructure.Serializers.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.TenantDbAccess\KeepInformed.Infrastructure.TenantDbAccess.csproj" />
     <ProjectReference Include="..\..\Infrastructure\KeepInformed.Infrastructure.Tvn\KeepInformed.Infrastructure.Tvn.csproj" />
   </ItemGroup>

@@ -2,7 +2,6 @@
 using KeepInformed.Infrastructure.Tvn.Services;
 using MediatR;
 using KeepInformed.Infrastructure.Tvn.Mappers;
-using KeepInformed.Common.XmlDeserializer;
 using KeepInformed.Application.MasterNews.Services.Tvn;
 using KeepInformed.Infrastructure.MediatR.PipelineBehaviors;
 using KeepInformed.Application.Authorization.Repositories;
@@ -34,8 +33,9 @@ using KeepInformed.Infrastructure.MasterDbAccess.Repositories.Tvn;
 using KeepInformed.Application.TenantNews.Repositories;
 using KeepInformed.Infrastructure.TenantDbAccess.Repositories;
 using KeepInformed.Application.TenantNews.Commands.SynchronizeTvnNews;
-using KeepInformed.Contracts.TenantNews.Commands.SynchronizeTvnNews;
 using KeepInformed.Application.MasterNews.Mappers.Tvn;
+using KeepInformed.Common.Serializers;
+using KeepInformed.Infrastructure.Serializers;
 
 namespace KeepInformed.Web.Shared;
 

@@ -1,6 +1,7 @@
-﻿using System.Xml.Serialization;
+﻿using KeepInformed.Common.Serializers;
+using System.Xml.Serialization;
 
-namespace KeepInformed.Common.XmlDeserializer;
+namespace KeepInformed.Infrastructure.Serializers;
 
 public class XmlDeserializer : IXmlDeserializer
 {
