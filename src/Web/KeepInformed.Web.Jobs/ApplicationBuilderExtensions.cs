@@ -13,6 +13,7 @@ public static class ApplicationBuilderExtensions
 
         eventBus.Subscribe<UserSignedUp, IIntegrationEventHandler<UserSignedUp>>();
         eventBus.Subscribe<UserConfirmedEmail, IIntegrationEventHandler<UserConfirmedEmail>>();
+        eventBus.Subscribe<Contracts.TenantNews.IntegrationEvents.SynchronizeTvnNews, IIntegrationEventHandler<Contracts.TenantNews.IntegrationEvents.SynchronizeTvnNews>>();
 
         return applicationBuilder;
     }
