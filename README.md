@@ -6,6 +6,7 @@ Patterns:
 - Onion architecture
 - Integration events
 - Multi tenancy
+- Microservices
 
 Using:
 - MediatR
