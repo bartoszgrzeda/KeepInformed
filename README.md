@@ -18,6 +18,6 @@ Using:
 - Docker
 - Jwt auth
 - Cache
-- RabbitMQ
+- Azure Service Bus
 - Azure CI
 - SignalR
