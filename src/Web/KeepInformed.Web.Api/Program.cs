@@ -16,7 +16,7 @@ builder.Services.RegisterCustomServices()
     .RegisterAutoMapper()
     .RegisterDbContexts()
     .RegisterValidators()
-    .RegisterRabbitMq();
+    .RegisterServiceBus();
 
 // Web.Api services
 builder.Services.AddJwtBearerAuthentication(builder.Configuration)

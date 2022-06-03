@@ -9,7 +9,6 @@ using KeepInformed.Application.Authorization.Commands.UserSignIn;
 using KeepInformed.Contracts.Authorization.Commands.UserSignIn;
 using KeepInformed.Application.Authorization.Mappers;
 using KeepInformed.Common.EventBus;
-using KeepInformed.Infrastructure.RabbitMq;
 using KeepInformed.Infrastructure.EventBus;
 using Microsoft.Extensions.DependencyInjection;
 using KeepInformed.Web.Shared.ResponseManager;
@@ -38,6 +37,7 @@ using KeepInformed.Common.Serializers;
 using KeepInformed.Infrastructure.Serializers;
 using KeepInformed.Common.Notifications;
 using KeepInformed.Infrastructure.SignalR;
+using KeepInformed.Infrastructure.ServiceBus;
 
 namespace KeepInformed.Web.Shared;
 
@@ -112,11 +112,10 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection RegisterRabbitMq(this IServiceCollection services)
+    public static IServiceCollection RegisterServiceBus(this IServiceCollection services)
     {
-        services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-        services.AddSingleton<IRabbitMqConnection, RabbitMqConnection>();
-        services.AddSingleton<IEventBus, RabbitMqEventBus>();
+        services.AddSingleton<IServiceBusConnection, ServiceBusConnection>();
+        services.AddSingleton<IEventBus, ServiceBusEventBus>();
 
         return services;
     }

@@ -13,7 +13,7 @@ builder.Services.RegisterCustomServices()
     .RegisterAutoMapper()
     .RegisterDbContexts()
     .RegisterValidators()
-    .RegisterRabbitMq();
+    .RegisterServiceBus();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

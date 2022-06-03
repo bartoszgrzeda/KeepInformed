@@ -13,8 +13,7 @@ builder.Services.RegisterCustomServices()
     .RegisterMediatR()
     .RegisterAutoMapper()
     .RegisterDbContexts()
-    .RegisterValidators()
-    .RegisterRabbitMq();
+    .RegisterValidators();
 
 // Web.Api services
 builder.Services.RegisterIntegrationEventHandlers();
