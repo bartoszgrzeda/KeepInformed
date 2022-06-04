@@ -2,7 +2,7 @@
 
 namespace KeepInformed.Contracts.TenantNews.IntegrationEvents;
 
-public class SynchronizeTvnNews : IntegrationEvent
+public class TvnNewsScheduledToBeSynchronized : IntegrationEvent
 {
     public Guid UserId { get; set; }
 }

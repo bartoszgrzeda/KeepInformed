@@ -87,6 +87,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepInformed.Infrastructure
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{E55BFA87-2500-42DC-BF75-5A5D84F78556}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepInformed.Functions.TenantNews", "src\Functions\KeepInformed.Functions.TenantNews\KeepInformed.Functions.TenantNews.csproj", "{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -217,6 +219,10 @@ Global
 		{1873BBA6-D4CA-4141-8CB0-7FD09C31E883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1873BBA6-D4CA-4141-8CB0-7FD09C31E883}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1873BBA6-D4CA-4141-8CB0-7FD09C31E883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,6 +263,7 @@ Global
 		{81ACFE80-71B4-4D7B-A64E-6ACE905F5922} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 		{833ED23E-CAB9-418D-A5BC-A8213FE906C1} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
 		{1873BBA6-D4CA-4141-8CB0-7FD09C31E883} = {0C2FAE8A-6D01-44EE-9C91-E055703A8125}
+		{FA14BFC4-B39A-4299-BEC5-864BE97CD5FB} = {E55BFA87-2500-42DC-BF75-5A5D84F78556}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {948BAA56-90E6-49B0-9D38-D102E9041721}

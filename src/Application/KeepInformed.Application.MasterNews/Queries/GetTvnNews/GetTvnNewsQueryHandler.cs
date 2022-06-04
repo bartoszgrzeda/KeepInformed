@@ -20,23 +20,25 @@ public class GetTvnNewsQueryHandler : IRequestHandler<GetTvnNewsQuery, GetTvnNew
 
     public async Task<GetTvnNewsQueryResponse> Handle(GetTvnNewsQuery request, CancellationToken cancellationToken)
     {
-        var publicationDate = request.PublicationDate;
-
-        IQueryable<TvnNews> news;
-
-        if (publicationDate == null)
-        {
-            news = _tvnNewsRepository.GetAll();
-        }
-
-        else
-        {
-            news = _tvnNewsRepository.GetByPublicationDate(publicationDate.Value);
-        }
+        var news = GetNewsQuery(request.PublicationDate)
+            .ToList();
 
         return new GetTvnNewsQueryResponse()
         {
             News = news.Select(x => _mapper.Map<TvnNewsDto>(x))
         };
+    }
+
+    private IQueryable<TvnNews> GetNewsQuery(DateTime? publicationDate)
+    {
+        if (publicationDate == null)
+        {
+            return _tvnNewsRepository.GetAll();
+        }
+
+        else
+        {
+            return _tvnNewsRepository.GetByPublicationDate(publicationDate.Value);
+        }
     }
 }

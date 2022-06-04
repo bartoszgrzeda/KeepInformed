@@ -17,6 +17,6 @@ public class TvnNewsRepository : BaseMasterRepository<TvnNews>, ITvnNewsReposito
 
     public IQueryable<TvnNews> GetByPublicationDate(DateTime publicationDate)
     {
-        return Entities.Where(x => x.PublicationDate >= publicationDate);
+        return Entities.Where(x => x.PublicationDate > publicationDate);
     }
 }

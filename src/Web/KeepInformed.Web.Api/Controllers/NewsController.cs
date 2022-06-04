@@ -25,7 +25,7 @@ public class NewsController : Controller
     public async Task<IActionResult> SignIn()
     {
         var userId = _tenantProvider.GetUserId();
-        var integrationEvent = new SynchronizeTvnNews()
+        var integrationEvent = new TvnNewsScheduledToBeSynchronized()
         {
             UserId = userId.GetValueOrDefault()
         };
